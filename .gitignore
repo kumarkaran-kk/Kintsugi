@@ -1,0 +1,53 @@
+# Environment variables and local secrets
+.env
+.env.*
+!.env.example
+*.local.php
+
+# PHP dependencies and test caches
+/vendor/
+.phpunit.cache/
+.phpunit.result.cache
+
+# JavaScript dependencies and build caches
+/node_modules/
+/.npm/
+/.yarn/
+/.pnpm-store/
+/.parcel-cache/
+/.vite/
+
+# Runtime files
+*.log
+/logs/
+/cache/
+/tmp/
+/temp/
+*.pid
+.preview-server.pid
+
+# Local previews and diagnostic captures
+*-preview.png
+frame-1-current.png
+frame-1-inspection.jpg
+
+# IDE and editor settings
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Local archives and backups
+*.bak
+*.backup
+*.tmp
+*.zip
+*.tar
+*.tar.gz
