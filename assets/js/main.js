@@ -1,18 +1,73 @@
 const toggle = document.querySelector('.menu-toggle');
 const menu = document.querySelector('.nav-left');
+const siteHeader = document.querySelector('.site-header');
+
+const updateHeaderState = () => {
+  siteHeader?.classList.toggle('is-scrolled', window.scrollY > 24);
+};
+
+updateHeaderState();
+window.addEventListener('scroll', updateHeaderState, { passive: true });
+
+const setMenuOpen = (open) => {
+  if (!toggle || !menu) return;
+  toggle.setAttribute('aria-expanded', String(open));
+  toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+  menu.classList.toggle('active', open);
+  document.body.classList.toggle('menu-open', open);
+};
 
 toggle?.addEventListener('click', () => {
-  const open = toggle.getAttribute('aria-expanded') === 'true';
-  toggle.setAttribute('aria-expanded', String(!open));
-  menu.classList.toggle('active', !open);
-  document.body.classList.toggle('menu-open', !open);
+  setMenuOpen(toggle.getAttribute('aria-expanded') !== 'true');
 });
 
 menu?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
-  toggle.setAttribute('aria-expanded', 'false');
-  menu.classList.remove('active');
-  document.body.classList.remove('menu-open');
+  setMenuOpen(false);
 }));
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') setMenuOpen(false);
+});
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 900) setMenuOpen(false);
+});
+
+// Keep in-page navigation smooth and clear of the fixed header on every page.
+document.addEventListener('click', event => {
+  const link = event.target.closest('a[href*="#"]');
+  if (!link) return;
+
+  const href = link.getAttribute('href');
+  if (!href || href === '#') return;
+
+  const destination = new URL(link.href, window.location.href);
+  const currentPath = `${window.location.origin}${window.location.pathname}`;
+  const destinationPath = `${destination.origin}${destination.pathname}`;
+  if (destinationPath !== currentPath || !destination.hash) return;
+
+  let target;
+  try {
+    target = document.querySelector(destination.hash);
+  } catch {
+    return;
+  }
+
+  if (!target) return;
+  event.preventDefault();
+  setMenuOpen(false);
+  target.scrollIntoView({
+    behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth',
+    block: 'start'
+  });
+  window.history.pushState(null, '', destination.hash);
+
+  if (!target.matches('a, button, input, select, textarea, [tabindex]')) {
+    target.setAttribute('tabindex', '-1');
+    target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+  }
+  target.focus({ preventScroll: true });
+});
 
 document.querySelectorAll('[data-plate-carousel]').forEach(carousel => {
   const slides = JSON.parse(carousel.dataset.slides || '[]');
@@ -29,10 +84,18 @@ document.querySelectorAll('[data-plate-carousel]').forEach(carousel => {
   small.querySelector('.plate-current').dataset.slideIndex = '1';
   small.querySelector('.plate-incoming').dataset.slideIndex = '2';
 
-  slides.forEach(source => {
-    const image = new Image();
-    image.src = source;
-  });
+  const preloadRemainingSlides = () => {
+    slides.slice(3).forEach(source => {
+      const image = new Image();
+      image.src = source;
+    });
+  };
+
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(preloadRemainingSlides, { timeout: 1800 });
+  } else {
+    window.setTimeout(preloadRemainingSlides, 500);
+  }
 
   const updateState = nextIndex => {
     dots.forEach((dot, dotIndex) => {
@@ -40,7 +103,7 @@ document.querySelectorAll('[data-plate-carousel]').forEach(carousel => {
       dot.classList.toggle('active', active);
       dot.setAttribute('aria-current', String(active));
       const image = dot.querySelector('img');
-      if (image) image.src = `assets/figma/${active ? 'spectrum-dot-active.svg' : 'spectrum-dot.svg'}`;
+      if (image) image.src = `assets/images/ui/${active ? 'spectrum-dot-active.svg' : 'spectrum-dot.svg'}`;
     });
     index = nextIndex;
   };
@@ -124,6 +187,7 @@ document.querySelectorAll('[data-shop-look]').forEach(section => {
   const productImage = section.querySelector('[data-look-image]');
   const productName = section.querySelector('[data-look-name]');
   const productPrice = section.querySelector('[data-look-price]');
+  const productLink = section.querySelector('[data-look-link]');
   let changeTimer;
 
   hotspots.forEach(hotspot => {
@@ -146,6 +210,7 @@ document.querySelectorAll('[data-shop-look]').forEach(section => {
         productImage.alt = hotspot.dataset.name;
         productName.textContent = hotspot.dataset.name;
         productPrice.textContent = hotspot.dataset.price;
+        if (productLink && hotspot.dataset.url) productLink.href = hotspot.dataset.url;
         card.classList.remove('is-changing');
       }, 180);
     });
@@ -165,4 +230,65 @@ document.querySelectorAll('.footer-tableware').forEach(ornaments => {
   }, { threshold: 0.18 });
 
   observer.observe(ornaments);
+});
+
+const revealSections = document.querySelectorAll('.intro, .feature-luxe, .story-grid, .category-section, .look, .new, .editorial, .reveal-block');
+
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) {
+  revealSections.forEach(section => section.classList.add('is-visible'));
+} else {
+  revealSections.forEach(section => section.classList.add('reveal-ready'));
+
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      entry.target.classList.toggle('is-visible', entry.isIntersecting);
+    });
+  }, { threshold: 0.06 });
+
+  revealSections.forEach(section => revealObserver.observe(section));
+}
+
+document.querySelectorAll('[data-contact-form]').forEach(form => {
+  form.addEventListener('submit', event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    const data = new FormData(form);
+    const subject = `Kintsugi enquiry: ${data.get('interest')}`;
+    const body = [
+      `Name: ${data.get('name')}`,
+      `Email: ${data.get('email')}`,
+      `Interest: ${data.get('interest')}`,
+      '',
+      String(data.get('message'))
+    ].join('\n');
+
+    window.location.href = `mailto:hello@kintsugi.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  });
+});
+
+document.querySelectorAll('.pdp-gallery').forEach(gallery => {
+  const mainImage = gallery.querySelector('[data-product-main]');
+  const thumbnails = [...gallery.querySelectorAll('[data-product-thumb]')];
+  let switchTimer;
+
+  thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => {
+      if (!mainImage || thumbnail.classList.contains('active')) return;
+
+      thumbnails.forEach(item => {
+        const active = item === thumbnail;
+        item.classList.toggle('active', active);
+        item.setAttribute('aria-pressed', String(active));
+      });
+
+      window.clearTimeout(switchTimer);
+      mainImage.classList.add('is-switching');
+      switchTimer = window.setTimeout(() => {
+        mainImage.src = thumbnail.dataset.productThumb;
+        mainImage.alt = thumbnail.dataset.productAlt || mainImage.alt;
+        mainImage.classList.remove('is-switching');
+      }, 140);
+    });
+  });
 });

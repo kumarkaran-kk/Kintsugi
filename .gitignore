@@ -21,6 +21,8 @@
 *.log
 /logs/
 /cache/
+/storage/
+/sessions/
 /tmp/
 /temp/
 *.pid
@@ -28,6 +30,12 @@
 
 # Local previews and diagnostic captures
 *-preview.png
+*-audit.png
+audit-*.png
+.audit-*
+/.image-optimizer/
+/.optimize-assets.ps1
+/.chrome-audit/
 frame-1-current.png
 frame-1-inspection.jpg
 
