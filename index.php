@@ -62,7 +62,6 @@ require __DIR__ . '/includes/header.php';
                 <h2>Kintsugi<br>Spectrum Luxe</h2>
                 <p>Spectrum Luxe — a bold symphony of modern art.<br>A vibrant take on modern dining, featuring a stunning stained glass mosaic in bold hues, framed in 24k gold. This 47-piece set blends avant-garde design with fine Indian craftsmanship — perfect for those who see their table as art.</p>
                 <p class="price">₹1,38,180</p>
-                <p class="shipping-pill">Shipping:₹1,500</p>
                 <a class="button" href="product.php?product=spectrum-luxe">View</a>
             </div>
             <div class="plate-stage" data-plate-carousel data-slides="<?= htmlspecialchars(json_encode($plateSlides), ENT_QUOTES) ?>">

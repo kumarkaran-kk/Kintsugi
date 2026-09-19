@@ -270,10 +270,11 @@ document.querySelectorAll('[data-contact-form]').forEach(form => {
 document.querySelectorAll('.pdp-gallery').forEach(gallery => {
   const mainImage = gallery.querySelector('[data-product-main]');
   const thumbnails = [...gallery.querySelectorAll('[data-product-thumb]')];
+  const counter = gallery.querySelector('[data-gallery-current]');
+  const nextButton = gallery.querySelector('[data-gallery-next]');
   let switchTimer;
 
-  thumbnails.forEach(thumbnail => {
-    thumbnail.addEventListener('click', () => {
+  const selectImage = thumbnail => {
       if (!mainImage || thumbnail.classList.contains('active')) return;
 
       thumbnails.forEach(item => {
@@ -287,8 +288,21 @@ document.querySelectorAll('.pdp-gallery').forEach(gallery => {
       switchTimer = window.setTimeout(() => {
         mainImage.src = thumbnail.dataset.productThumb;
         mainImage.alt = thumbnail.dataset.productAlt || mainImage.alt;
+        mainImage.style.objectPosition = thumbnail.dataset.productPosition || 'center';
         mainImage.classList.remove('is-switching');
       }, 140);
-    });
+
+      if (counter) {
+        counter.textContent = String(thumbnails.indexOf(thumbnail) + 1).padStart(2, '0');
+      }
+  };
+
+  thumbnails.forEach(thumbnail => {
+    thumbnail.addEventListener('click', () => selectImage(thumbnail));
+  });
+
+  nextButton?.addEventListener('click', () => {
+    const activeIndex = Math.max(0, thumbnails.findIndex(item => item.classList.contains('active')));
+    selectImage(thumbnails[(activeIndex + 1) % thumbnails.length]);
   });
 });
