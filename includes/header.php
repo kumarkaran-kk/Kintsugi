@@ -45,7 +45,7 @@ function nav_active(string $key, string $currentPage): string
             <a class="mobile-nav-only" href="craftsmanship.php"<?= nav_active('craftsmanship', $pageKey) ?>>Craftsmanship</a>
             <a class="mobile-nav-only" href="contact.php"<?= nav_active('contact', $pageKey) ?>>Contact</a>
         </nav>
-        <a class="brand" href="index.php" aria-label="Kintsugi home"><img src="assets/images/brand/kintsugi-logo.svg" alt="Kintsugi luxury tableware" width="435" height="98"></a>
+        <a class="brand" href="index.php" aria-label="Kintsugi home"><img src="assets/images/brand/kintsugi-logo.svg" alt="Kintsugi luxury tableware" width="454" height="186"></a>
         <nav class="nav nav-right" aria-label="Secondary navigation">
             <a href="craftsmanship.php"<?= nav_active('craftsmanship', $pageKey) ?>>Craftsmanship</a>
             <a href="contact.php"<?= nav_active('contact', $pageKey) ?>>Contact</a>

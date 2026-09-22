@@ -170,14 +170,15 @@ p {
     display: flex;
     width: 100%;
     height: clamp(58px, 4.7vw, 88px);
+    align-items: center;
     justify-content: center;
-    overflow: hidden;
+    overflow: visible;
 }
 
 .brand img {
     width: min(100%, 320px);
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
 }
 
@@ -987,11 +988,11 @@ p {
 }
 
 .footer-brand img {
-    width: min(116%, 380px);
-    height: 92px;
-    object-fit: cover;
-    object-position: center;
-    transform: translateX(-13%);
+    width: min(100%, 380px);
+    height: auto;
+    aspect-ratio: 454 / 186;
+    object-fit: contain;
+    object-position: left center;
 }
 
 .footer-brand p {
@@ -1181,7 +1182,7 @@ p {
     .site-header .brand img {
         width: min(210px, 56vw);
         height: 62px;
-        object-fit: cover;
+        object-fit: contain;
     }
 
     .nav-left {
@@ -1567,8 +1568,8 @@ p {
     }
 
     .footer-brand img {
-        width: min(116%, 350px);
-        height: 88px;
+        width: min(100%, 350px);
+        height: auto;
     }
 
     .footer-brand p {
@@ -1793,8 +1794,8 @@ p {
     }
 
     .footer-brand img {
-        width: min(116%, 315px);
-        height: 82px;
+        width: min(100%, 315px);
+        height: auto;
     }
 
     .footer-brand p {
@@ -2496,9 +2497,11 @@ p {
 }
 
 .craft-step>img {
+    display: block;
     width: 100%;
+    height: auto;
     aspect-ratio: 1;
-    object-fit: contain;
+    object-fit: cover;
     background: #fff;
 }
 

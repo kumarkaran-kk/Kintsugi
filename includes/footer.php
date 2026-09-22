@@ -1,7 +1,7 @@
     <footer class="site-footer">
         <div class="footer-main">
             <div class="footer-brand">
-                <img src="assets/images/brand/kintsugi-logo.svg" alt="Kintsugi" width="435" height="98" loading="lazy">
+                <img src="assets/images/brand/kintsugi-logo.svg" alt="Kintsugi" width="454" height="186" loading="lazy">
                 <p>We'll write to you only when the<br>feeling is right - stories worth<br>keeping, journeys worth dreaming.</p>
             </div>
             <nav class="footer-column footer-categories" aria-label="Product categories">
