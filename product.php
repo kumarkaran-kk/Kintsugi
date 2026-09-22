@@ -45,13 +45,10 @@ $presentation = [
     ],
 ][$product['slug']];
 
-$gallery = [
-    ['src' => $product['image'], 'position' => 'center'],
-    ['src' => $product['scene'], 'position' => 'center'],
-    ['src' => $product['image'], 'position' => '35% center'],
-    ['src' => $product['scene'], 'position' => '70% center'],
-    ['src' => $product['image'], 'position' => 'center bottom'],
-];
+$gallery = array_map(
+    static fn (string $image): array => ['src' => $image, 'position' => 'center'],
+    $product['gallery']
+);
 
 $relatedProducts = [];
 foreach ($allProducts as $relatedSlug => $related) {
@@ -71,7 +68,7 @@ require __DIR__ . '/includes/header.php';
     <?php endif; ?>
 
     <section class="pdp-hero" aria-labelledby="product-title">
-        <div class="pdp-gallery reveal-block" data-gallery-count="<?= count($gallery) ?>">
+        <div class="pdp-gallery reveal-block" data-gallery-count="<?= count($gallery) ?>" style="--gallery-count:<?= count($gallery) ?>">
             <div class="pdp-thumbnails" aria-label="Product images">
                 <?php foreach ($gallery as $imageIndex => $galleryImage): ?>
                     <button type="button" class="pdp-thumbnail<?= $imageIndex === 0 ? ' active' : '' ?>" data-product-thumb="<?= htmlspecialchars($galleryImage['src']) ?>" data-product-position="<?= htmlspecialchars($galleryImage['position']) ?>" data-product-alt="<?= htmlspecialchars($product['name']) ?> — view <?= $imageIndex + 1 ?>" aria-label="Show product image <?= $imageIndex + 1 ?>" aria-pressed="<?= $imageIndex === 0 ? 'true' : 'false' ?>">
