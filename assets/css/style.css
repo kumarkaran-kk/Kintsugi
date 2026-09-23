@@ -1001,6 +1001,42 @@ p {
     font: 400 clamp(17px, 1.15vw, 22px)/1.38 Afacad, sans-serif;
 }
 
+.footer-social {
+    display: flex;
+    max-width: 430px;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.footer-social a {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    flex: 0 0 38px;
+    place-items: center;
+    border: 1px solid rgba(91, 0, 27, .34);
+    border-radius: 50%;
+    color: var(--wine);
+    transition: color .25s ease, background-color .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.footer-social-icon {
+    width: 18px;
+    height: 18px;
+    background: currentColor;
+    -webkit-mask: var(--social-icon) center / contain no-repeat;
+    mask: var(--social-icon) center / contain no-repeat;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+    border-color: var(--wine);
+    background: var(--wine);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
 .footer-column h3 {
     margin: 0 0 25px;
     font: 700 clamp(18px, 1.2vw, 23px)/1 Afacad, sans-serif;
@@ -1801,6 +1837,18 @@ p {
     .footer-brand p {
         max-width: 330px;
         font-size: 18px;
+    }
+
+    .footer-social {
+        max-width: 350px;
+        gap: 10px;
+        margin-top: 22px;
+    }
+
+    .footer-social a {
+        width: 40px;
+        height: 40px;
+        flex-basis: 40px;
     }
 
     .footer-column h3 {
@@ -2758,16 +2806,6 @@ p {
     font-size: 23px;
 }
 
-.pdp-shipping {
-    display: inline-flex;
-    margin: -12px 0 28px;
-    padding: 8px 14px;
-    border: 1px solid rgba(91, 0, 27, .25);
-    border-radius: 999px;
-    color: var(--wine);
-    font-size: 14px;
-}
-
 .pdp-description {
     max-width: 630px;
     margin-bottom: 35px;
@@ -3431,15 +3469,12 @@ p {
     font-weight: 600;
 }
 
-.editorial-pdp .pdp-shipping {
-    display: inline-flex;
-    gap: 5px;
-    margin: 0 0 24px;
-    padding: 6px 13px;
-    border: 1px solid var(--pdp-line);
-    border-radius: 999px;
-    color: #4f4845;
+.editorial-pdp .pdp-tax-note {
+    max-width: 470px;
+    margin: 0 0 13px;
+    color: #706663;
     font-size: 12px;
+    line-height: 1.45;
 }
 
 .pdp-primary-cta,

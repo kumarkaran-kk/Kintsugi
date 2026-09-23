@@ -3,6 +3,14 @@
             <div class="footer-brand">
                 <img src="assets/images/brand/kintsugi-logo.svg" alt="Kintsugi" width="454" height="186" loading="lazy">
                 <p>We'll write to you only when the<br>feeling is right - stories worth<br>keeping, journeys worth dreaming.</p>
+                <nav class="footer-social" aria-label="Kintsugi social media">
+                    <?php foreach (KINTSUGI_SOCIAL_URLS as $platform => $url): ?>
+                        <a href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Follow Kintsugi on <?= htmlspecialchars($platform) ?>">
+                            <span class="footer-social-icon" style="--social-icon: url('../images/social/<?= strtolower(htmlspecialchars($platform)) ?>.svg')" aria-hidden="true"></span>
+                            <span class="visually-hidden"><?= htmlspecialchars($platform) ?></span>
+                        </a>
+                    <?php endforeach; ?>
+                </nav>
             </div>
             <nav class="footer-column footer-categories" aria-label="Product categories">
                 <h3>Collections</h3><a href="dining.php">Dining</a><a href="kitchen.php">Kitchen</a><a href="serveware.php">Serveware</a><a href="gifting.php">Gifting</a><a href="collections.php#signature">Signature Collections</a>

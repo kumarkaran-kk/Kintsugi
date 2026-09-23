@@ -88,7 +88,7 @@ require __DIR__ . '/includes/header.php';
             <p class="pdp-tagline"><?= htmlspecialchars($presentation['tagline']) ?></p>
             <p class="pdp-rating" aria-label="Rated 4.8 out of 5"><span aria-hidden="true">★★★★★</span> <b>4.8 (28 reviews)</b></p>
             <p class="pdp-price"><?= htmlspecialchars($product['price']) ?></p>
-            <p class="pdp-shipping">Shipping <strong><?= htmlspecialchars($product['shipping']) ?></strong></p>
+            <p class="pdp-tax-note">Inclusive of all applicable taxes. Shipping charges are calculated separately at checkout.</p>
             <a class="pdp-primary-cta" href="<?= htmlspecialchars($product['retail_url']) ?>" target="_blank" rel="noopener">Purchase on IndieKonnect <span aria-hidden="true">↗</span></a>
             <a class="pdp-secondary-cta" href="contact.php#enquiry">Book a Private Viewing</a>
             <div class="pdp-promises">
