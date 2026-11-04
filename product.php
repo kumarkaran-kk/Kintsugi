@@ -108,13 +108,13 @@ require __DIR__ . '/includes/header.php';
         <div class="pdp-section-head reveal-block"><h2>The Collection, Piece by Piece</h2><span></span><p>A harmonious set of <?= htmlspecialchars((string) $product['pieces']) ?> pieces</p></div>
         <div class="pdp-piece-grid">
             <?php foreach ($presentation['pieces'] as $index => $piece): ?>
-                <article class="pdp-piece reveal-block"><div><img src="<?= htmlspecialchars($index % 2 === 0 ? $product['image'] : $product['scene']) ?>" alt="<?= htmlspecialchars($piece[1]) ?>" loading="lazy" style="--piece-position:<?= ["38% 52%", "64% 46%", "47% 58%", "72% 43%", "53% 50%"][$index] ?>"></div><b><?= htmlspecialchars($piece[0]) ?></b><h3><?= htmlspecialchars($piece[1]) ?></h3></article>
+                <article class="pdp-piece reveal-block"><div><img src="<?= htmlspecialchars($product['piece_images'][$index]) ?>" alt="<?= htmlspecialchars($piece[1]) ?>" loading="lazy" style="--piece-position:center"></div><b><?= htmlspecialchars($piece[0]) ?></b><h3><?= htmlspecialchars($piece[1]) ?></h3></article>
             <?php endforeach; ?>
         </div>
     </div></section>
 
     <section class="pdp-craft">
-        <div class="pdp-craft-image"><img src="<?= htmlspecialchars($product['scene']) ?>" alt="<?= htmlspecialchars($product['short_name']) ?> craftsmanship detail" loading="lazy"></div>
+        <div class="pdp-craft-image"><img src="<?= htmlspecialchars($product['craft_image']) ?>" alt="<?= htmlspecialchars($product['short_name']) ?> craftsmanship detail" loading="lazy"></div>
         <div class="pdp-craft-copy reveal-block"><p class="pdp-overline">Our Craftsmanship</p><h2>Made by Hand.<br>Meant to Endure.</h2><i></i><p>Each piece in the <?= htmlspecialchars($product['short_name']) ?> collection is crafted by master artisans, combining time-honoured techniques with a vision for contemporary living.</p></div>
         <ol class="pdp-craft-steps"><li><b>01</b><span>Fine porcelain<br>for lasting beauty</span></li><li><b>02</b><span>Hand-finished motifs<br>by skilled artisans</span></li><li><b>03</b><span>24-carat gold detailing<br>for a luminous finish</span></li></ol>
     </section>
@@ -123,7 +123,7 @@ require __DIR__ . '/includes/header.php';
         <div class="pdp-section-head reveal-block"><h2>Details in Gold</h2><span></span><p>Discover the finer elements</p></div>
         <div class="pdp-macro-grid">
             <?php foreach ($presentation['detail_captions'] as $index => $caption): ?>
-                <figure class="pdp-macro-card reveal-block"><div><img src="<?= htmlspecialchars($index === 1 ? $product['image'] : $product['scene']) ?>" alt="<?= htmlspecialchars($caption) ?>" loading="lazy" style="object-position:<?= ['25% center', 'center', '75% center'][$index] ?>"></div><figcaption><?= htmlspecialchars($caption) ?></figcaption></figure>
+                <figure class="pdp-macro-card reveal-block"><div><img src="<?= htmlspecialchars($product['detail_images'][$index]) ?>" alt="<?= htmlspecialchars($caption) ?>" loading="lazy"></div><figcaption><?= htmlspecialchars($caption) ?></figcaption></figure>
             <?php endforeach; ?>
         </div>
         <div class="pdp-section-head pdp-spec-heading reveal-block"><h2>Product Specifications</h2><span></span><p>A closer look</p></div>
@@ -134,7 +134,7 @@ require __DIR__ . '/includes/header.php';
         </div>
     </div></section>
 
-    <section class="pdp-lifestyle"><img class="pdp-lifestyle-image" src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['short_name']) ?> table setting" loading="lazy"><div class="pdp-lifestyle-shade" aria-hidden="true"></div><div class="pdp-wrap"><div class="pdp-lifestyle-copy reveal-block"><h2>Set the Table for<br>Something Unforgettable</h2><i></i><p>More than a meal, it’s a feeling. The <?= htmlspecialchars($product['short_name']) ?> collection turns everyday moments into extraordinary memories.</p><a href="house.php" class="pdp-small-button">Explore the Story</a></div></div></section>
+    <section class="pdp-lifestyle"><img class="pdp-lifestyle-image" src="<?= htmlspecialchars($product['lifestyle_image']) ?>" alt="<?= htmlspecialchars($product['short_name']) ?> table setting" loading="lazy"><div class="pdp-lifestyle-shade" aria-hidden="true"></div><div class="pdp-wrap"><div class="pdp-lifestyle-copy reveal-block"><h2>Set the Table for<br>Something Unforgettable</h2><i></i><p>More than a meal, it’s a feeling. The <?= htmlspecialchars($product['short_name']) ?> collection turns everyday moments into extraordinary memories.</p><a href="house.php" class="pdp-small-button">Explore the Story</a></div></div></section>
 
     <section class="pdp-section pdp-care"><div class="pdp-wrap">
         <div class="pdp-section-head reveal-block"><h2>Care and Delivery</h2><span></span><p>Supporting a lifetime of beautiful moments</p></div>

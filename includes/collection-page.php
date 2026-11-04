@@ -60,7 +60,7 @@ require __DIR__ . '/header.php';
     </section>
 
     <section class="ritual-banner reveal-block">
-        <img src="assets/images/home/tea-editorial.webp" alt="A Kintsugi tea ritual" width="996" height="634" loading="lazy">
+        <img src="assets/images/home/real-tea-editorial.webp" alt="A Kintsugi tea ritual" width="1080" height="1080" loading="lazy">
         <div>
             <p class="eyebrow">Beauty lives in the everyday</p>
             <h2>Made for moments worth gathering around.</h2>

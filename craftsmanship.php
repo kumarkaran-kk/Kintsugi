@@ -7,7 +7,7 @@ $pageTitle = 'Craftsmanship';
 $pageDescription = 'Discover the considered design, material and finishing behind Kintsugi tableware.';
 $pageKey = 'craftsmanship';
 $bodyClass = 'inner-page craftsmanship-page';
-$heroImage = 'assets/images/home/cup-saucer.webp';
+$heroImage = 'assets/images/pages/craftsmanship-hero.webp';
 $heroEyebrow = 'Made with intention';
 $heroTitle = 'Craftsmanship';
 $heroIntro = 'Thoughtful form, considered finish and attention that can be felt in use.';
@@ -29,7 +29,7 @@ require __DIR__ . '/includes/header.php';
                 <h2>Begin with the ritual.</h2>
                 <p>We look first at the moment a piece belongs to: the way a bowl is passed, how a cup sits in the hand, or how a place setting comes together.</p>
             </div>
-            <img src="assets/images/home/spectrum-plate-01.webp" alt="Royal Opulence plate detail" width="1798" height="1800" loading="lazy">
+            <img src="assets/images/pages/craftsmanship-aureate.webp" alt="Aureate Gold place setting" width="1080" height="1080" loading="lazy">
         </article>
         <article class="craft-step reverse reveal-block">
             <div><span>02</span>
@@ -37,8 +37,8 @@ require __DIR__ . '/includes/header.php';
                 <h2>Beauty that earns its place.</h2>
                 <p>Silhouettes are considered for balance and use. Decorative details are composed to enrich the object without overwhelming the food, table or room around it.</p>
             </div>
-            <img src="assets/images/home/dining-story.webp"
-                alt="Kintsugi Royal Opulence table setting" width="950" height="950" loading="lazy">
+            <img src="assets/images/pages/craftsmanship-spectrum.webp"
+                alt="Kintsugi Spectrum Luxe place setting" width="1080" height="1080" loading="lazy">
         </article>
         <article class="craft-step reveal-block">
             <div><span>03</span>
@@ -46,7 +46,7 @@ require __DIR__ . '/includes/header.php';
                 <h2>The final detail matters.</h2>
                 <p>Pattern, edge, sheen and surface are reviewed as a complete language. The aim is an object that feels special on first sight and remains rewarding over time.</p>
             </div>
-            <img src="assets/images/home/cutlery-set.webp" alt="Gold-toned Kintsugi cutlery" width="1254" height="1254" loading="lazy">
+            <img src="assets/images/pages/craftsmanship-royal.webp" alt="Royal Opulence place setting" width="1080" height="1080" loading="lazy">
         </article>
     </section>
 

@@ -17,11 +17,11 @@ $categories = [
 $lookProduct = $products['royal-opulence'];
 
 $plateSlides = [
-    'assets/images/home/spectrum-plate-01.webp',
-    'assets/images/home/spectrum-plate-02.webp',
-    'assets/images/home/spectrum-plate-03.webp',
-    'assets/images/home/spectrum-plate-04.webp',
-    'assets/images/home/spectrum-plate-05.webp',
+    'assets/images/products/spectrum-luxe/real-complete-collection.webp',
+    'assets/images/products/spectrum-luxe/real-stacked-set.webp',
+    'assets/images/products/spectrum-luxe/real-tea-set.webp',
+    'assets/images/products/spectrum-luxe/real-casserole.webp',
+    'assets/images/home/real-spectrum-collection.webp',
 ];
 $pageTitle = 'Luxury Tableware';
 $pageDescription = 'Beauty lives in the everyday. Discover Kintsugi tableware for moments worth gathering around.';
@@ -30,11 +30,11 @@ require __DIR__ . '/includes/header.php';
 ?>
     <main>
         <section class="hero" aria-labelledby="hero-title">
-            <img class="hero-bg" src="assets/images/home/hero-aureate-gold.webp" alt="Aureate Gold luxury dinnerware collection" width="1842" height="854" fetchpriority="high">
+            <img class="hero-bg" src="assets/images/home/real-hero-spectrum.webp" alt="Spectrum Luxe tableware arranged for a gathering" width="1842" height="854" fetchpriority="high">
             <div class="hero-shade"></div>
             <div class="hero-copy">
-                <h1 id="hero-title">Aureate Gold</h1>
-                <a class="button button-light" href="collections.php">Explore</a>
+                <h1 id="hero-title">Spectrum Luxe</h1>
+                <a class="button button-light" href="product.php?product=spectrum-luxe">Explore</a>
             </div>
         </section>
 
@@ -43,16 +43,16 @@ require __DIR__ . '/includes/header.php';
             <h2>Handcrafted tableware for Indian homes</h2>
             <div class="intro-grid">
                 <a class="intro-card" href="dining.php">
-                    <span class="intro-image"><img src="assets/images/home/dinner-set.webp" alt="Kintsugi Aureate Gold dinner set" width="1254" height="1254" loading="lazy"></span>
+                    <span class="intro-image"><img src="assets/images/home/real-intro-aureate.webp" alt="Aureate Gold dinner setting" width="1080" height="1080" loading="lazy"></span>
                     <span class="intro-title"><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"><b>Dinner Set</b><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"></span>
                 </a>
                 <a class="intro-card" href="dining.php">
-                    <span class="intro-image"><img src="assets/images/home/cup-saucer.webp" alt="Kintsugi cup and saucer" width="1254" height="1254" loading="lazy"></span>
+                    <span class="intro-image"><img src="assets/images/home/real-intro-teaware.webp" alt="Spectrum Luxe teaware" width="1080" height="1080" loading="lazy"></span>
                     <span class="intro-title"><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"><b>Cup &amp; Saucer</b><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"></span>
                 </a>
-                <a class="intro-card" href="kitchen.php">
-                    <span class="intro-image"><img src="assets/images/home/cutlery-set.webp" alt="Kintsugi luxury gold cutlery set" width="1254" height="1254" loading="lazy"></span>
-                    <span class="intro-title"><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"><b>Cutlery Set</b><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"></span>
+                <a class="intro-card" href="serveware.php">
+                    <span class="intro-image"><img src="assets/images/home/real-intro-royal.webp" alt="Royal Opulence serveware setting" width="1080" height="1080" loading="lazy"></span>
+                    <span class="intro-title"><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"><b>Serveware</b><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"></span>
                 </a>
             </div>
         </section>
@@ -66,11 +66,11 @@ require __DIR__ . '/includes/header.php';
             </div>
             <div class="plate-stage" data-plate-carousel data-slides="<?= htmlspecialchars(json_encode($plateSlides), ENT_QUOTES) ?>">
                 <div class="plate-viewport plate-viewport-large">
-                    <img class="plate-current" src="<?= $plateSlides[0] ?>" alt="Spectrum Luxe dinner plate">
+                    <img class="plate-current" src="<?= $plateSlides[0] ?>" alt="Spectrum Luxe complete collection">
                     <img class="plate-incoming" src="<?= $plateSlides[1] ?>" alt="" aria-hidden="true">
                 </div>
                 <div class="plate-viewport plate-viewport-small">
-                    <img class="plate-current" src="<?= $plateSlides[1] ?>" alt="Spectrum Luxe side plate">
+                    <img class="plate-current" src="<?= $plateSlides[1] ?>" alt="Spectrum Luxe stacked tableware">
                     <img class="plate-incoming" src="<?= $plateSlides[2] ?>" alt="" aria-hidden="true">
                 </div>
                 <div class="plate-controls">
@@ -86,7 +86,7 @@ require __DIR__ . '/includes/header.php';
         </section>
 
         <section class="story-grid">
-            <article class="story-image"><img src="assets/images/home/dining-story.webp" alt="Premium dinner set collection" width="950" height="950" loading="lazy"></article>
+            <article class="story-image"><img src="assets/images/home/real-royal-place-setting.webp" alt="Royal Opulence dinner setting" width="1080" height="1080" loading="lazy"></article>
             <article class="story-copy"><span class="eyebrow">Handcrafted tableware for Indian homes</span>
                 <h2>Premium<br>Dinner Sets</h2>
                 <p>Explore dinnerware and modern dinner sets<br>for everyday dining, festive hosting and gifting.</p><a class="button" href="dining.php">View</a>
@@ -95,7 +95,7 @@ require __DIR__ . '/includes/header.php';
                 <h2>Handcrafted<br>Tea Sets</h2>
                 <p>Explore considered teaware for slow mornings,<br>evening rituals and generous hosting.</p><a class="button" href="dining.php">View</a>
             </article>
-            <article class="story-image"><img src="assets/images/home/tea-story.webp" alt="Handcrafted tea set design" width="950" height="950" loading="lazy"></article>
+            <article class="story-image"><img src="assets/images/home/real-craftsmanship.webp" alt="Spectrum Luxe teaware in use" width="1080" height="1080" loading="lazy"></article>
         </section>
 
         <section class="category-section section-pad" id="categories">
@@ -119,19 +119,19 @@ require __DIR__ . '/includes/header.php';
             <h2>Shop the Look</h2>
             <div class="look-grid" data-shop-look>
                 <div class="look-scene">
-                    <img src="<?= htmlspecialchars($lookProduct['image']) ?>" alt="A styled Royal Opulence dining table" loading="lazy">
+                    <img src="assets/images/home/real-royal-table.webp" alt="A styled Royal Opulence dining table" loading="lazy">
                     <button class="look-hotspot active" type="button"
                         style="--hotspot-x:27%;--hotspot-y:72%"
                         data-look-index="0"
                         data-name="<?= htmlspecialchars($lookProduct['name']) ?>"
                         data-price="<?= htmlspecialchars($lookProduct['price']) ?>"
-                        data-image="<?= htmlspecialchars($lookProduct['scene']) ?>"
+                        data-image="assets/images/home/real-royal-detail.webp"
                         data-url="product.php?product=royal-opulence"
                         aria-label="View <?= htmlspecialchars($lookProduct['name']) ?>"
                         aria-pressed="true"><span></span></button>
                 </div>
                 <div class="look-product" aria-live="polite">
-                    <div class="look-product-image"><img data-look-image src="<?= htmlspecialchars($lookProduct['scene']) ?>" alt="<?= htmlspecialchars($lookProduct['name']) ?>" loading="lazy"></div>
+                    <div class="look-product-image"><img data-look-image src="assets/images/home/real-royal-detail.webp" alt="<?= htmlspecialchars($lookProduct['name']) ?>" loading="lazy"></div>
                     <p data-look-price><?= htmlspecialchars($lookProduct['price']) ?></p>
                     <h3 data-look-name><?= htmlspecialchars($lookProduct['name']) ?></h3>
                     <a class="button" data-look-link href="product.php?product=royal-opulence">View this product</a>
@@ -158,7 +158,7 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="editorial"><img src="assets/images/home/tea-editorial.webp" alt="Tea time with Kintsugi" width="996" height="634" loading="lazy">
+        <section class="editorial"><img src="assets/images/home/real-tea-editorial.webp" alt="Tea time with Spectrum Luxe" width="1080" height="1080" loading="lazy">
             <div class="editorial-panel">
                 <div class="editorial-copy">
                     <h2>Tea Time<br>Shenanigans</h2>

@@ -3671,15 +3671,15 @@ p {
 .pdp-piece>div {
     height: clamp(140px, 13.5vw, 230px);
     overflow: hidden;
+    background: #fff;
 }
 
 .pdp-piece img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    padding: clamp(6px, .7vw, 12px);
+    object-fit: contain;
     object-position: var(--piece-position);
-    clip-path: circle(43% at 50% 50%);
-    transform: scale(1.18);
 }
 
 .pdp-piece b {
