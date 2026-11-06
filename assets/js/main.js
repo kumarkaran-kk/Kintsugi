@@ -306,3 +306,207 @@ document.querySelectorAll('.pdp-gallery').forEach(gallery => {
     selectImage(thumbnails[(activeIndex + 1) % thumbnails.length]);
   });
 });
+
+// Kintsugi's homepage Festival of Light experience.
+const createDiwaliFireworks = canvas => {
+  if (!canvas) return null;
+
+  const context = canvas.getContext('2d');
+  const colors = ['#f6d477', '#fff7c8', '#d99b34', '#b82c55', '#8e1238'];
+  const particles = [];
+  let frame = 0;
+  let width = 0;
+  let height = 0;
+  let running = false;
+
+  const resize = () => {
+    const ratio = Math.min(window.devicePixelRatio || 1, 2);
+    width = window.innerWidth;
+    height = window.innerHeight;
+    canvas.width = Math.round(width * ratio);
+    canvas.height = Math.round(height * ratio);
+    context.setTransform(ratio, 0, 0, ratio, 0, 0);
+  };
+
+  const draw = () => {
+    context.clearRect(0, 0, width, height);
+
+    for (let index = particles.length - 1; index >= 0; index -= 1) {
+      const particle = particles[index];
+      particle.life -= 1;
+      if (particle.life <= 0) {
+        particles.splice(index, 1);
+        continue;
+      }
+
+      particle.previousX = particle.x;
+      particle.previousY = particle.y;
+      particle.vx *= .986;
+      particle.vy = particle.vy * .986 + particle.gravity;
+      particle.x += particle.vx;
+      particle.y += particle.vy;
+
+      const opacity = Math.min(1, particle.life / 20);
+      context.beginPath();
+      context.moveTo(particle.previousX, particle.previousY);
+      context.lineTo(particle.x, particle.y);
+      context.strokeStyle = `${particle.color}${Math.round(opacity * 255).toString(16).padStart(2, '0')}`;
+      context.lineWidth = particle.size;
+      context.lineCap = 'round';
+      context.stroke();
+
+      if (particle.life % 4 === 0) {
+        context.beginPath();
+        context.arc(particle.x, particle.y, particle.size * 1.25, 0, Math.PI * 2);
+        context.fillStyle = `rgba(255,248,210,${opacity * .7})`;
+        context.fill();
+      }
+    }
+
+    if (particles.length) {
+      frame = window.requestAnimationFrame(draw);
+    } else {
+      running = false;
+    }
+  };
+
+  const burst = (x, y, amount = 54, scale = 1) => {
+    const spokes = Math.max(24, amount);
+    const rotation = Math.random() * Math.PI;
+    for (let index = 0; index < spokes; index += 1) {
+      const angle = rotation + (Math.PI * 2 * index / spokes) + (Math.random() - .5) * .08;
+      const speed = (2.1 + Math.random() * 3.7) * scale;
+      particles.push({
+        x,
+        y,
+        previousX: x,
+        previousY: y,
+        vx: Math.cos(angle) * speed,
+        vy: Math.sin(angle) * speed,
+        gravity: .025 + Math.random() * .018,
+        life: 42 + Math.floor(Math.random() * 28),
+        size: .8 + Math.random() * 1.5,
+        color: colors[index % colors.length]
+      });
+    }
+
+    if (!running) {
+      running = true;
+      frame = window.requestAnimationFrame(draw);
+    }
+  };
+
+  const destroy = () => {
+    window.cancelAnimationFrame(frame);
+    window.removeEventListener('resize', resize);
+    particles.length = 0;
+    context.clearRect(0, 0, width, height);
+  };
+
+  resize();
+  window.addEventListener('resize', resize, { passive: true });
+  return { burst, destroy };
+};
+
+const reducedDiwaliMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const diwaliOpening = document.querySelector('[data-diwali-opening]');
+
+if (diwaliOpening) {
+  const enterButton = diwaliOpening.querySelector('[data-diwali-enter]');
+    const pageContent = document.querySelector('main');
+    const pageFooter = document.querySelector('.site-footer');
+    const openingFireworks = reducedDiwaliMotion
+      ? null
+      : createDiwaliFireworks(diwaliOpening.querySelector('[data-diwali-opening-canvas]'));
+    const openingTimers = [];
+    let closing = false;
+
+    document.body.classList.add('diwali-open');
+    if (siteHeader) siteHeader.inert = true;
+    if (pageContent) pageContent.inert = true;
+    if (pageFooter) pageFooter.inert = true;
+    window.setTimeout(() => enterButton?.focus(), 120);
+
+    if (openingFireworks) {
+      const launch = (x, y, delay, amount = 62, scale = 1) => {
+        openingTimers.push(window.setTimeout(() => openingFireworks.burst(
+          window.innerWidth * x,
+          window.innerHeight * y,
+          amount,
+          scale
+        ), delay));
+      };
+      launch(.2, .23, 120, 56, .9);
+      launch(.79, .2, 520, 64, 1);
+      launch(.5, .15, 1050, 72, 1.05);
+      launch(.12, .55, 1680, 48, .78);
+      launch(.88, .56, 2050, 48, .78);
+      launch(.5, .68, 2850, 64, .94);
+      const recurring = window.setInterval(() => {
+        openingFireworks.burst(
+          window.innerWidth * (.12 + Math.random() * .76),
+          window.innerHeight * (.12 + Math.random() * .48),
+          46 + Math.floor(Math.random() * 18),
+          .75 + Math.random() * .25
+        );
+      }, 1450);
+      openingTimers.push(recurring);
+    }
+
+    const closeWelcome = () => {
+      if (closing) return;
+      closing = true;
+      openingTimers.forEach(timer => {
+        window.clearTimeout(timer);
+        window.clearInterval(timer);
+      });
+      document.body.classList.remove('diwali-open');
+      if (siteHeader) siteHeader.inert = false;
+      if (pageContent) pageContent.inert = false;
+      if (pageFooter) pageFooter.inert = false;
+      diwaliOpening.classList.add('is-closing');
+      window.setTimeout(() => {
+        openingFireworks?.destroy();
+        diwaliOpening.classList.add('is-complete');
+        document.documentElement.classList.add('diwali-welcome-seen');
+      }, reducedDiwaliMotion ? 10 : 680);
+    };
+
+    enterButton?.addEventListener('click', closeWelcome);
+    document.addEventListener('keydown', event => {
+      if (closing) return;
+      if (event.key === 'Escape') closeWelcome();
+      if (event.key === 'Tab') {
+        event.preventDefault();
+        enterButton?.focus();
+      }
+    });
+}
+
+const diwaliSections = [...document.querySelectorAll('[data-diwali-section]')];
+const pageFireworks = !reducedDiwaliMotion && diwaliSections.length
+  ? createDiwaliFireworks(document.querySelector('[data-diwali-page-canvas]'))
+  : null;
+
+if (diwaliSections.length && 'IntersectionObserver' in window) {
+  const diwaliObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) {
+        entry.target.classList.remove('diwali-in-view');
+        return;
+      }
+      if (entry.target.classList.contains('diwali-in-view')) return;
+
+      entry.target.classList.add('diwali-in-view', 'diwali-sparked');
+      window.setTimeout(() => entry.target.classList.remove('diwali-sparked'), 900);
+
+      if (!pageFireworks) return;
+      const box = entry.target.getBoundingClientRect();
+      const y = Math.max(100, Math.min(window.innerHeight - 120, box.top + Math.min(box.height * .24, 180)));
+      pageFireworks.burst(window.innerWidth * .09, y, 34, .62);
+      window.setTimeout(() => pageFireworks.burst(window.innerWidth * .91, y + 35, 34, .62), 240);
+    });
+  }, { threshold: .16 });
+
+  diwaliSections.forEach(section => diwaliObserver.observe(section));
+}

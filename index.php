@@ -28,6 +28,43 @@ $pageDescription = 'Beauty lives in the everyday. Discover Kintsugi tableware fo
 $pageKey = 'home';
 require __DIR__ . '/includes/header.php';
 ?>
+    <svg class="diwali-svg-defs" aria-hidden="true">
+        <defs>
+            <linearGradient id="diwali-flame-gradient" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#fff8c8"/>
+                <stop offset=".48" stop-color="#f3bd45"/>
+                <stop offset="1" stop-color="#c86620"/>
+            </linearGradient>
+            <symbol id="kintsugi-diya" viewBox="0 0 120 110">
+                <ellipse cx="60" cy="77" rx="47" ry="15" fill="#3c0014" opacity=".22"/>
+                <path d="M13 58c9 34 28 45 47 45s38-11 47-45c-16 8-30 11-47 11S29 66 13 58Z" fill="#6b0825" stroke="#d9a33d" stroke-width="3"/>
+                <path d="M19 58c13 8 27 11 41 11s28-3 41-11" fill="none" stroke="#f0ca69" stroke-width="4" stroke-linecap="round"/>
+                <path d="M60 60c-13-14-12-29 0-46 12 17 13 32 0 46Z" fill="url(#diwali-flame-gradient)" stroke="#f7dc88" stroke-width="2"/>
+                <path d="M60 57c-5-8-4-16 0-24 5 8 6 16 0 24Z" fill="#fffbe4"/>
+                <path d="M31 76c8 8 18 12 29 12s21-4 29-12" fill="none" stroke="#d9a33d" stroke-width="2" opacity=".9"/>
+            </symbol>
+        </defs>
+    </svg>
+
+    <div class="diwali-opening" data-diwali-opening role="dialog" aria-modal="true" aria-labelledby="diwali-wish-title">
+        <canvas class="diwali-opening-fireworks" data-diwali-opening-canvas aria-hidden="true"></canvas>
+        <div class="diwali-opening-rangoli" aria-hidden="true"></div>
+        <div class="diwali-opening-card">
+            <p class="diwali-overline">The House of Kintsugi celebrates</p>
+            <h2 id="diwali-wish-title">A Festival of Light</h2>
+            <div class="diwali-opening-diyas" aria-hidden="true">
+                <svg><use href="#kintsugi-diya"></use></svg>
+                <svg><use href="#kintsugi-diya"></use></svg>
+                <svg><use href="#kintsugi-diya"></use></svg>
+            </div>
+            <p class="diwali-wish">May every table glow with warmth, <br>togetherness and beautiful beginnings.</p>
+            <p class="diwali-signoff">Wishing you a radiant and joyous Diwali</p>
+            <button class="diwali-enter" type="button" data-diwali-enter>Enter Kintsugi</button>
+        </div>
+    </div>
+    <noscript><style>.diwali-opening{display:none}</style></noscript>
+    <canvas class="diwali-page-fireworks" data-diwali-page-canvas aria-hidden="true"></canvas>
+
     <main>
         <section class="hero" aria-labelledby="hero-title">
             <img class="hero-bg" src="assets/images/home/real-hero-spectrum.webp" alt="Spectrum Luxe tableware arranged for a gathering" width="1842" height="854" fetchpriority="high">
@@ -57,7 +94,8 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="feature feature-luxe" id="collections">
+        <section class="feature feature-luxe diwali-celebration-section" id="collections" data-diwali-section>
+            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
             <div class="feature-copy">
                 <h2>Kintsugi<br>Spectrum Luxe</h2>
                 <p>Spectrum Luxe — a bold symphony of modern art.<br>A vibrant take on modern dining, featuring a stunning stained glass mosaic in bold hues, framed in 24k gold. This 47-piece set blends avant-garde design with fine Indian craftsmanship — perfect for those who see their table as art.</p>
@@ -98,7 +136,8 @@ require __DIR__ . '/includes/header.php';
             <article class="story-image"><img src="assets/images/home/real-craftsmanship.webp" alt="Spectrum Luxe teaware in use" width="1080" height="1080" loading="lazy"></article>
         </section>
 
-        <section class="category-section section-pad" id="categories">
+        <section class="category-section section-pad diwali-celebration-section" id="categories" data-diwali-section>
+            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
             <div class="ornate-panel">
                 <h2>Shop by Category</h2>
                 <div class="category-grid">
@@ -115,7 +154,8 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="look section-pad">
+        <section class="look section-pad diwali-celebration-section" data-diwali-section>
+            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
             <h2>Shop the Look</h2>
             <div class="look-grid" data-shop-look>
                 <div class="look-scene">
@@ -139,7 +179,8 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="new section-pad" id="new">
+        <section class="new section-pad diwali-celebration-section" id="new" data-diwali-section>
+            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
             <h2>What’s New</h2>
             <div class="product-row">
                 <?php foreach ($products as $slug => $product): ?>
@@ -158,7 +199,9 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="editorial"><img src="assets/images/home/real-tea-editorial.webp" alt="Tea time with Spectrum Luxe" width="1080" height="1080" loading="lazy">
+        <section class="editorial diwali-celebration-section" data-diwali-section>
+            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
+            <img src="assets/images/home/real-tea-editorial.webp" alt="Tea time with Spectrum Luxe" width="1080" height="1080" loading="lazy">
             <div class="editorial-panel">
                 <div class="editorial-copy">
                     <h2>Tea Time<br>Shenanigans</h2>
