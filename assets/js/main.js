@@ -465,6 +465,14 @@ if (diwaliOpening) {
       if (pageContent) pageContent.inert = false;
       if (pageFooter) pageFooter.inert = false;
       diwaliOpening.classList.add('is-closing');
+      if (pageFireworks) {
+        window.setTimeout(() => {
+          pageFireworks.burst(window.innerWidth * .18, window.innerHeight * .28, 38, .72);
+          window.setTimeout(() => {
+            pageFireworks.burst(window.innerWidth * .82, window.innerHeight * .24, 38, .72);
+          }, 220);
+        }, 720);
+      }
       window.setTimeout(() => {
         openingFireworks?.destroy();
         diwaliOpening.classList.add('is-complete');

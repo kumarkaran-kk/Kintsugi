@@ -69,7 +69,16 @@ require __DIR__ . '/includes/header.php';
         <section class="hero" aria-labelledby="hero-title">
             <img class="hero-bg" src="assets/images/home/real-hero-spectrum.webp" alt="Spectrum Luxe tableware arranged for a gathering" width="1842" height="854" fetchpriority="high">
             <div class="hero-shade"></div>
+            <div class="hero-diwali" aria-hidden="true">
+                <span class="hero-diwali-garland"></span>
+                <span class="hero-diwali-spark hero-diwali-spark-a"></span>
+                <span class="hero-diwali-spark hero-diwali-spark-b"></span>
+                <span class="hero-diwali-spark hero-diwali-spark-c"></span>
+                <svg class="hero-diwali-diya hero-diwali-diya-left"><use href="#kintsugi-diya"></use></svg>
+                <svg class="hero-diwali-diya hero-diwali-diya-right"><use href="#kintsugi-diya"></use></svg>
+            </div>
             <div class="hero-copy">
+                <p class="hero-diwali-label"><span></span>A Diwali Celebration<span></span></p>
                 <h1 id="hero-title">Spectrum Luxe</h1>
                 <a class="button button-light" href="product.php?product=spectrum-luxe">Explore</a>
             </div>
