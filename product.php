@@ -60,6 +60,25 @@ $productNameWords = explode(' ', $product['name']);
 $productNameLastWord = array_pop($productNameWords);
 $productNameFirstLine = implode(' ', $productNameWords);
 
+/** Render encoding-safe line icons for PDP features and services. */
+function pdp_line_icon(string $name): string
+{
+    $drawings = [
+        'cube' => '<path d="M16 3 28 9v14l-12 6L4 23V9Z"/><path d="m4 9 12 7 12-7M16 16v13"/>',
+        'spark' => '<path d="M16 3c.8 6.9 3.4 9.5 10 10-6.6.6-9.2 3.2-10 10-.8-6.8-3.4-9.4-10-10 6.6-.5 9.2-3.1 10-10Z"/><path d="M25 3v5M22.5 5.5h5M7 22v6M4 25h6"/>',
+        'flower' => '<circle cx="16" cy="16" r="3"/><path d="M16 13c-4-3.3-4.4-7.2 0-10 4.4 2.8 4 6.7 0 10ZM19 14c.5-5.2 3.7-7.6 8.5-5.8.3 5.2-3.4 6.7-8.5 5.8ZM19 18c5.1-1.1 8.4 1 8.5 6.2-4.8 2-7.8-.8-8.5-6.2ZM16 19c4 3.3 4.4 7.2 0 10-4.4-2.8-4-6.7 0-10ZM13 18c-.5 5.2-3.7 7.6-8.5 5.8-.3-5.2 3.4-6.7 8.5-5.8ZM13 14c-5.1 1.1-8.4-1-8.5-6.2 4.8-2 7.8.8 8.5 6.2Z"/>',
+        'hand' => '<path d="M10 15V8.5a2 2 0 0 1 4 0V14M14 12V6.5a2 2 0 0 1 4 0V14M18 12V8a2 2 0 0 1 4 0v7M22 13v-2a2 2 0 0 1 4 0v7c0 7-3.8 11-10 11-4.2 0-6.4-2.4-8.1-5.2L5 19.1a2.2 2.2 0 0 1 3.5-2.6L12 20"/>',
+        'origin' => '<path d="m15 3 4 2 1 4 4 2-2 4 2 3-3 3-1 5-4 3-3-4-4-2 2-4-3-3 4-3-1-5 4-2Z"/><circle cx="16" cy="14" r="2"/>',
+        'plates' => '<ellipse cx="16" cy="8" rx="11" ry="4"/><path d="M5 8v4c0 2.2 4.9 4 11 4s11-1.8 11-4V8M7 16v3c0 2 4 3.7 9 3.7s9-1.7 9-3.7v-3M9 23v2.5c0 1.9 3.1 3.5 7 3.5s7-1.6 7-3.5V23"/>',
+        'delivery' => '<path d="M3 7h17v16H3Z"/><path d="M20 13h5l4 5v5h-9Z"/><circle cx="8" cy="24" r="3"/><circle cx="24" cy="24" r="3"/>',
+        'help' => '<path d="M5 18v-3a11 11 0 0 1 22 0v3"/><path d="M5 17h4v9H7a2 2 0 0 1-2-2ZM27 17h-4v9h2a2 2 0 0 0 2-2ZM23 26c-1 2-3.2 3-6 3"/>',
+    ];
+
+    $drawing = $drawings[$name] ?? $drawings['spark'];
+    $className = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+    return '<svg class="pdp-line-icon pdp-line-icon--' . $className . '" viewBox="0 0 32 32" aria-hidden="true" focusable="false">' . $drawing . '</svg>';
+}
+
 require __DIR__ . '/includes/header.php';
 ?>
 <main class="editorial-pdp editorial-pdp--<?= htmlspecialchars($presentation['theme']) ?>">
@@ -129,7 +148,7 @@ require __DIR__ . '/includes/header.php';
         <div class="pdp-section-head pdp-spec-heading reveal-block"><h2>Product Specifications</h2><span></span><p>A closer look</p></div>
         <div class="pdp-specs">
             <?php $specifications = [['cube', 'Material', 'Porcelain'], ['spark', 'Finish', $product['finish']], ['flower', 'Detailing', '24-carat gold'], ['hand', 'Care', 'Hand wash only'], ['origin', 'Origin', 'Crafted in India'], ['plates', 'Pieces', (string) $product['pieces']]]; foreach ($specifications as [$icon, $label, $value]): ?>
-                <div class="pdp-spec"><span class="pdp-line-icon pdp-line-icon--<?= $icon ?>" aria-hidden="true"></span><b><?= htmlspecialchars($label) ?></b><p><?= htmlspecialchars($value) ?></p></div>
+                <div class="pdp-spec"><?= pdp_line_icon($icon) ?><b><?= htmlspecialchars($label) ?></b><p><?= htmlspecialchars($value) ?></p></div>
             <?php endforeach; ?>
         </div>
     </div></section>
@@ -139,10 +158,10 @@ require __DIR__ . '/includes/header.php';
     <section class="pdp-section pdp-care"><div class="pdp-wrap">
         <div class="pdp-section-head reveal-block"><h2>Care and Delivery</h2><span></span><p>Supporting a lifetime of beautiful moments</p></div>
         <div class="pdp-service-grid">
-            <article><span class="pdp-line-icon pdp-line-icon--hand" aria-hidden="true"></span><div><h3>Care Instructions</h3><p>Hand wash only with a mild detergent. Not microwave safe.</p></div></article>
-            <article><span class="pdp-line-icon pdp-line-icon--delivery" aria-hidden="true"></span><div><h3>Delivery Timeline</h3><p>Estimated delivery: <?= htmlspecialchars($product['delivery']) ?>.</p></div></article>
-            <article><span class="pdp-line-icon pdp-line-icon--cube" aria-hidden="true"></span><div><h3>Secure Fulfilment</h3><p>Orders are securely managed through IndieKonnect.</p></div></article>
-            <article><span class="pdp-line-icon pdp-line-icon--help" aria-hidden="true"></span><div><h3>Need Help?</h3><p>For product enquiries or a private viewing, contact us.</p></div></article>
+            <article><?= pdp_line_icon('hand') ?><div><h3>Care Instructions</h3><p>Hand wash only with a mild detergent. Not microwave safe.</p></div></article>
+            <article><?= pdp_line_icon('delivery') ?><div><h3>Delivery Timeline</h3><p>Estimated delivery: <?= htmlspecialchars($product['delivery']) ?>.</p></div></article>
+            <article><?= pdp_line_icon('cube') ?><div><h3>Secure Fulfilment</h3><p>Orders are securely managed through IndieKonnect.</p></div></article>
+            <article><?= pdp_line_icon('help') ?><div><h3>Need Help?</h3><p>For product enquiries or a private viewing, contact us.</p></div></article>
         </div>
         <div class="pdp-section-head pdp-related-heading reveal-block"><h2>Complete the Table</h2><span></span><p>Continue the story</p></div>
         <div class="pdp-related-grid">

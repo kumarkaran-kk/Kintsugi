@@ -4284,19 +4284,18 @@ p {
 
 .pdp-line-icon {
     display: block;
-    min-width: 40px;
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    margin-inline: auto;
     color: var(--pdp-gold);
-    font: 400 31px/1 Georgia, serif;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.35;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
 }
-
-.pdp-line-icon::before { content: 'â—‡'; }
-.pdp-line-icon--spark::before { content: 'âœ¦'; }
-.pdp-line-icon--flower::before { content: 'âˆ'; }
-.pdp-line-icon--hand::before { content: 'â™§'; }
-.pdp-line-icon--origin::before { content: 'âŒ–'; }
-.pdp-line-icon--plates::before { content: 'â—Ž'; }
-.pdp-line-icon--delivery::before { content: 'â–±'; }
-.pdp-line-icon--help::before { content: 'â—Œ'; }
 
 .pdp-spec b {
     display: block;
