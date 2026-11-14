@@ -4,14 +4,13 @@ declare(strict_types=1);
 require_once __DIR__ . '/config.php';
 
 $pageTitle = 'Collections';
-$pageDescription = 'Discover Kintsugi dining, kitchen, serveware and gifting collections.';
+$pageDescription = 'Discover Kintsugi’s three signature fine porcelain tableware collections.';
 $pageKey = 'collections';
 $bodyClass = 'inner-page collections-page';
 $heroImage = 'assets/images/pages/collections-hero.webp';
 $heroEyebrow = 'A world of considered living';
 $heroTitle = 'Collections';
 $heroIntro = 'Discover pieces made for moments worth gathering around.';
-$collections = kintsugi_collection_pages();
 $products = kintsugi_products();
 require __DIR__ . '/includes/header.php';
 ?>
@@ -20,18 +19,18 @@ require __DIR__ . '/includes/header.php';
 
     <section class="collection-index section-pad" id="collection-grid">
         <div class="section-heading reveal-block">
-            <p class="eyebrow">Explore by ritual</p>
-            <h2>Objects for a beautifully lived life.</h2>
-            <p>Each collection begins with a familiar moment and considers how design can make it feel more meaningful.</p>
+            <p class="eyebrow">Three Signature Collections</p>
+            <h2>Tableware with a distinct point of view.</h2>
+            <p>Each Kintsugi collection brings together dinnerware and serveware in its own considered design language.</p>
         </div>
-        <div class="collection-index-grid">
-            <?php foreach ($collections as $slug => $collection): ?>
-                <a class="collection-index-card reveal-block" href="<?= htmlspecialchars($slug) ?>.php">
-                    <img src="<?= htmlspecialchars($collection['hero']) ?>" alt="<?= htmlspecialchars($collection['title']) ?> collection" loading="lazy">
+        <div class="collection-index-grid collection-index-grid-products">
+            <?php foreach ($products as $slug => $product): ?>
+                <a class="collection-index-card reveal-block" href="product.php?product=<?= rawurlencode($slug) ?>">
+                    <img src="<?= htmlspecialchars($product['scene']) ?>" alt="<?= htmlspecialchars($product['name']) ?> collection" loading="lazy">
                     <span>
-                        <small><?= htmlspecialchars($collection['eyebrow']) ?></small>
-                        <strong><?= htmlspecialchars($collection['title']) ?></strong>
-                        <i>Explore collection ↗</i>
+                        <small><?= htmlspecialchars((string) $product['pieces']) ?>-piece collection</small>
+                        <strong><?= htmlspecialchars($product['short_name']) ?></strong>
+                        <i>Discover collection ↗</i>
                     </span>
                 </a>
             <?php endforeach; ?>
@@ -40,8 +39,8 @@ require __DIR__ . '/includes/header.php';
 
     <section class="signature-edit section-pad" id="signature">
         <div class="section-heading reveal-block">
-            <p class="eyebrow">Signature edit</p>
-            <h2>Details that complete the table.</h2>
+            <p class="eyebrow">The Complete Edit</p>
+            <h2>Choose your Kintsugi collection.</h2>
         </div>
         <div class="signature-grid">
             <?php foreach (array_slice($products, 0, 3, true) as $slug => $product): ?>

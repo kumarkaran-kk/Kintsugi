@@ -5,166 +5,84 @@ require_once __DIR__ . '/config.php';
 
 $products = kintsugi_products();
 
-$categories = [
-    ['Cutlery', 'cutlery'],
-    ['Cup & Saucer', 'cup-saucer'],
-    ['Dinnerware', 'dinnerware'],
-    ['Snack Set', 'snack-set'],
-    ['Dessertware', 'dessertware'],
-    ['Teaware', 'teaware'],
-];
-
 $lookProduct = $products['royal-opulence'];
-
-$plateSlides = [
-    'assets/images/products/spectrum-luxe/real-complete-collection.webp',
-    'assets/images/products/spectrum-luxe/real-stacked-set.webp',
-    'assets/images/products/spectrum-luxe/real-tea-set.webp',
-    'assets/images/products/spectrum-luxe/real-casserole.webp',
-    'assets/images/home/real-spectrum-collection.webp',
-];
 $pageTitle = 'Luxury Tableware';
 $pageDescription = 'Beauty lives in the everyday. Discover Kintsugi tableware for moments worth gathering around.';
 $pageKey = 'home';
 require __DIR__ . '/includes/header.php';
 ?>
-    <svg class="diwali-svg-defs" aria-hidden="true">
-        <defs>
-            <linearGradient id="diwali-flame-gradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0" stop-color="#fff8c8"/>
-                <stop offset=".48" stop-color="#f3bd45"/>
-                <stop offset="1" stop-color="#c86620"/>
-            </linearGradient>
-            <symbol id="kintsugi-diya" viewBox="0 0 120 110">
-                <ellipse cx="60" cy="77" rx="47" ry="15" fill="#3c0014" opacity=".22"/>
-                <path d="M13 58c9 34 28 45 47 45s38-11 47-45c-16 8-30 11-47 11S29 66 13 58Z" fill="#6b0825" stroke="#d9a33d" stroke-width="3"/>
-                <path d="M19 58c13 8 27 11 41 11s28-3 41-11" fill="none" stroke="#f0ca69" stroke-width="4" stroke-linecap="round"/>
-                <path d="M60 60c-13-14-12-29 0-46 12 17 13 32 0 46Z" fill="url(#diwali-flame-gradient)" stroke="#f7dc88" stroke-width="2"/>
-                <path d="M60 57c-5-8-4-16 0-24 5 8 6 16 0 24Z" fill="#fffbe4"/>
-                <path d="M31 76c8 8 18 12 29 12s21-4 29-12" fill="none" stroke="#d9a33d" stroke-width="2" opacity=".9"/>
-            </symbol>
-        </defs>
-    </svg>
-
-    <div class="diwali-opening" data-diwali-opening role="dialog" aria-modal="true" aria-labelledby="diwali-wish-title">
-        <canvas class="diwali-opening-fireworks" data-diwali-opening-canvas aria-hidden="true"></canvas>
-        <div class="diwali-opening-rangoli" aria-hidden="true"></div>
-        <div class="diwali-opening-card">
-            <p class="diwali-overline">The House of Kintsugi celebrates</p>
-            <h2 id="diwali-wish-title">A Festival of Light</h2>
-            <div class="diwali-opening-diyas" aria-hidden="true">
-                <svg><use href="#kintsugi-diya"></use></svg>
-                <svg><use href="#kintsugi-diya"></use></svg>
-                <svg><use href="#kintsugi-diya"></use></svg>
-            </div>
-            <p class="diwali-wish">May every table glow with warmth, <br>togetherness and beautiful beginnings.</p>
-            <p class="diwali-signoff">Wishing you a radiant and joyous Diwali</p>
-            <button class="diwali-enter" type="button" data-diwali-enter>Enter Kintsugi</button>
-        </div>
-    </div>
-    <noscript><style>.diwali-opening{display:none}</style></noscript>
-    <canvas class="diwali-page-fireworks" data-diwali-page-canvas aria-hidden="true"></canvas>
-
     <main>
         <section class="hero" aria-labelledby="hero-title">
-            <img class="hero-bg" src="assets/images/home/real-hero-spectrum.webp" alt="Spectrum Luxe tableware arranged for a gathering" width="1842" height="854" fetchpriority="high">
+            <img class="hero-bg" src="assets/images/home/real-hero-spectrum-clean.jpg" alt="Spectrum Luxe tableware arranged for a gathering" width="1842" height="854" fetchpriority="high">
             <div class="hero-shade"></div>
-            <div class="hero-diwali" aria-hidden="true">
-                <span class="hero-diwali-garland"></span>
-                <span class="hero-diwali-spark hero-diwali-spark-a"></span>
-                <span class="hero-diwali-spark hero-diwali-spark-b"></span>
-                <span class="hero-diwali-spark hero-diwali-spark-c"></span>
-                <svg class="hero-diwali-diya hero-diwali-diya-left"><use href="#kintsugi-diya"></use></svg>
-                <svg class="hero-diwali-diya hero-diwali-diya-right"><use href="#kintsugi-diya"></use></svg>
-            </div>
             <div class="hero-copy">
-                <p class="hero-diwali-label"><span></span>A Diwali Celebration<span></span></p>
                 <h1 id="hero-title">Spectrum Luxe</h1>
                 <a class="button button-light" href="product.php?product=spectrum-luxe">Explore</a>
             </div>
         </section>
 
         <section class="intro section-pad">
-            <p class="eyebrow">Dinner Sets</p>
+            <p class="eyebrow">Fine Porcelain</p>
             <h2>Handcrafted tableware for Indian homes</h2>
             <div class="intro-grid">
-                <a class="intro-card" href="dining.php">
+                <a class="intro-card" href="product.php?product=aureate-gold">
                     <span class="intro-image"><img src="assets/images/home/real-intro-aureate.webp" alt="Aureate Gold dinner setting" width="1080" height="1080" loading="lazy"></span>
-                    <span class="intro-title"><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"><b>Dinner Set</b><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"></span>
+                    <span class="intro-title"><i aria-hidden="true"></i><b>Tableware</b><i aria-hidden="true"></i></span>
                 </a>
-                <a class="intro-card" href="dining.php">
+                <a class="intro-card" href="product.php?product=spectrum-luxe">
                     <span class="intro-image"><img src="assets/images/home/real-intro-teaware.webp" alt="Spectrum Luxe teaware" width="1080" height="1080" loading="lazy"></span>
-                    <span class="intro-title"><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"><b>Cup &amp; Saucer</b><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"></span>
+                    <span class="intro-title"><i aria-hidden="true"></i><b>Tableware</b><i aria-hidden="true"></i></span>
                 </a>
-                <a class="intro-card" href="serveware.php">
+                <a class="intro-card" href="product.php?product=royal-opulence">
                     <span class="intro-image"><img src="assets/images/home/real-intro-royal.webp" alt="Royal Opulence serveware setting" width="1080" height="1080" loading="lazy"></span>
-                    <span class="intro-title"><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"><b>Serveware</b><img src="assets/images/home/title-medallion.webp" alt="" width="240" height="240"></span>
+                    <span class="intro-title"><i aria-hidden="true"></i><b>Tableware</b><i aria-hidden="true"></i></span>
                 </a>
             </div>
         </section>
 
-        <section class="feature feature-luxe diwali-celebration-section" id="collections" data-diwali-section>
-            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
-            <div class="feature-copy">
-                <h2>Kintsugi<br>Spectrum Luxe</h2>
-                <p>Spectrum Luxe — a bold symphony of modern art.<br>A vibrant take on modern dining, featuring a stunning stained glass mosaic in bold hues, framed in 24k gold. This 47-piece set blends avant-garde design with fine Indian craftsmanship — perfect for those who see their table as art.</p>
-                <p class="price">₹1,38,180</p>
-                <a class="button" href="product.php?product=spectrum-luxe">View</a>
+        <section class="feature-showcase" id="collections">
+            <div class="feature-showcase-image">
+                <img src="assets/images/products/spectrum-luxe/real-table-setting.webp" alt="Spectrum Luxe tableware styled for a contemporary gathering" width="1080" height="1080" loading="lazy">
             </div>
-            <div class="plate-stage" data-plate-carousel data-slides="<?= htmlspecialchars(json_encode($plateSlides), ENT_QUOTES) ?>">
-                <div class="plate-viewport plate-viewport-large">
-                    <img class="plate-current" src="<?= $plateSlides[0] ?>" alt="Spectrum Luxe complete collection">
-                    <img class="plate-incoming" src="<?= $plateSlides[1] ?>" alt="" aria-hidden="true">
-                </div>
-                <div class="plate-viewport plate-viewport-small">
-                    <img class="plate-current" src="<?= $plateSlides[1] ?>" alt="Spectrum Luxe stacked tableware">
-                    <img class="plate-incoming" src="<?= $plateSlides[2] ?>" alt="" aria-hidden="true">
-                </div>
-                <div class="plate-controls">
-                    <button type="button" class="plate-arrow" data-plate-prev aria-label="Previous plate"><img src="assets/images/ui/spectrum-arrow-left.svg" alt=""></button>
-                    <button type="button" class="plate-arrow" data-plate-next aria-label="Next plate"><img src="assets/images/ui/spectrum-arrow-right.svg" alt=""></button>
-                </div>
-                <div class="plate-dots" aria-label="Plate selection">
-                    <?php foreach ($plateSlides as $index => $_): ?>
-                        <button type="button" data-plate-dot="<?= $index ?>" class="<?= $index === 0 ? 'active' : '' ?>" aria-label="Show plate <?= $index + 1 ?>" aria-current="<?= $index === 0 ? 'true' : 'false' ?>"><img src="assets/images/ui/<?= $index === 0 ? 'spectrum-dot-active.svg' : 'spectrum-dot.svg' ?>" alt=""></button>
-                    <?php endforeach; ?>
-                </div>
+            <div class="feature-showcase-copy">
+                <p class="eyebrow">Spectrum Luxe</p>
+                <h2>Where Art Meets<br>Everyday Elegance.</h2>
+                <p>A celebration of artistic expression and refined dining, Spectrum Luxe brings together fine porcelain and exquisite 24K gold detailing. Inspired by contemporary aesthetics and crafted with precision, this collection transforms everyday table settings into moments of understated luxury, perfect for those who appreciate the beauty of fine design and timeless craftsmanship.</p>
+                <p class="price"><?= htmlspecialchars($products['spectrum-luxe']['price']) ?></p>
+                <a class="button" href="product.php?product=spectrum-luxe">View collection</a>
             </div>
         </section>
 
         <section class="story-grid">
             <article class="story-image"><img src="assets/images/home/real-royal-place-setting.webp" alt="Royal Opulence dinner setting" width="1080" height="1080" loading="lazy"></article>
-            <article class="story-copy"><span class="eyebrow">Handcrafted tableware for Indian homes</span>
-                <h2>Premium<br>Dinner Sets</h2>
-                <p>Explore dinnerware and modern dinner sets<br>for everyday dining, festive hosting and gifting.</p><a class="button" href="dining.php">View</a>
+            <article class="story-copy"><span class="eyebrow">Fine Tableware for Indian Homes</span>
+                <h2>Premium<br>Tableware</h2>
+                <p>Explore thoughtfully designed fine porcelain tableware with exquisite 24K gold detailing, perfect for everyday elegance, festive occasions, hosting and gifting.</p><a class="button" href="collections.php">View</a>
             </article>
-            <article class="story-copy"><span class="eyebrow">Crafted for every tea moment</span>
-                <h2>Handcrafted<br>Tea Sets</h2>
-                <p>Explore considered teaware for slow mornings,<br>evening rituals and generous hosting.</p><a class="button" href="dining.php">View</a>
+            <article class="story-copy"><span class="eyebrow">Designed for Every Everyday Moment</span>
+                <h2>Fine Porcelain<br>Tableware</h2>
+                <p>Discover thoughtfully crafted tableware featuring elegant designs and 24K gold detailing, perfect for everyday moments, special occasions and gracious hosting.</p><a class="button" href="collections.php">View</a>
             </article>
             <article class="story-image"><img src="assets/images/home/real-craftsmanship.webp" alt="Spectrum Luxe teaware in use" width="1080" height="1080" loading="lazy"></article>
         </section>
 
-        <section class="category-section section-pad diwali-celebration-section" id="categories" data-diwali-section>
-            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
+        <section class="category-section collection-home-section section-pad" id="categories">
             <div class="ornate-panel">
-                <h2>Shop by Category</h2>
-                <div class="category-grid">
-                    <?php foreach ($categories as [$name, $icon]): ?>
-                        <a class="category-card category-<?= $icon ?>" href="<?= htmlspecialchars(INDIEKONNECT_STORE_URL) ?>" target="_blank" rel="noopener">
-                            <span class="category-icon" aria-hidden="true">
-                                <span class="category-state category-state-idle"><img src="assets/images/category/<?= $icon ?>-idle.webp" alt="" loading="lazy"></span>
-                                <span class="category-state category-state-hover"><img src="assets/images/category/<?= $icon ?>-hover.webp" alt="" loading="lazy"></span>
-                            </span>
-                            <span class="category-name"><?= htmlspecialchars($name) ?></span>
+                <p class="eyebrow">The Kintsugi Collections</p>
+                <h2>Explore Our Tableware</h2>
+                <div class="home-collection-grid">
+                    <?php foreach ($products as $slug => $product): ?>
+                        <a class="home-collection-card" href="product.php?product=<?= rawurlencode($slug) ?>">
+                            <span class="home-collection-image"><img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy"></span>
+                            <span class="home-collection-name"><?= htmlspecialchars($product['short_name']) ?></span>
+                            <small>Explore collection <span aria-hidden="true">↗</span></small>
                         </a>
                     <?php endforeach; ?>
                 </div>
             </div>
         </section>
 
-        <section class="look section-pad diwali-celebration-section" data-diwali-section>
-            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
+        <section class="look section-pad">
             <h2>Shop the Look</h2>
             <div class="look-grid" data-shop-look>
                 <div class="look-scene">
@@ -188,19 +106,18 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="new section-pad diwali-celebration-section" id="new" data-diwali-section>
-            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
+        <section class="new section-pad" id="new">
             <h2>What’s New</h2>
             <div class="product-row">
                 <?php foreach ($products as $slug => $product): ?>
-                    <article class="product" tabindex="0">
-                        <span class="product-image">
+                    <article class="product">
+                        <div class="product-image" data-product-actions-toggle tabindex="0" role="button" aria-expanded="false" aria-label="Show actions for <?= htmlspecialchars($product['name']) ?>">
                             <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
                             <span class="product-actions">
                                 <a class="product-action product-action-bag" href="product.php?product=<?= rawurlencode($slug) ?>" aria-label="View <?= htmlspecialchars($product['name']) ?> details">View details</a>
                                 <a class="product-action product-action-buy" href="<?= htmlspecialchars($product['retail_url']) ?>" target="_blank" rel="noopener" aria-label="Buy <?= htmlspecialchars($product['name']) ?> now">Buy now</a>
                             </span>
-                        </span>
+                        </div>
                         <p><?= htmlspecialchars($product['price']) ?></p>
                         <h3><a href="product.php?product=<?= rawurlencode($slug) ?>"><?= htmlspecialchars($product['name']) ?></a></h3>
                     </article>
@@ -208,17 +125,6 @@ require __DIR__ . '/includes/header.php';
             </div>
         </section>
 
-        <section class="editorial diwali-celebration-section" data-diwali-section>
-            <div class="diwali-section-accent" aria-hidden="true"><svg><use href="#kintsugi-diya"></use></svg></div>
-            <img src="assets/images/home/real-tea-editorial.webp" alt="Tea time with Spectrum Luxe" width="1080" height="1080" loading="lazy">
-            <div class="editorial-panel">
-                <div class="editorial-copy">
-                    <h2>Tea Time<br>Shenanigans</h2>
-                    <p>Crafted with uncompromising quality and timeless designs, discover Kintsugi&rsquo;s elegant teaware that turns every tea time into a luxurious moment!</p>
-                    <a class="button" href="house.php">Discover</a>
-                </div>
-            </div>
-        </section>
     </main>
 
 <?php require __DIR__ . '/includes/footer.php'; ?>

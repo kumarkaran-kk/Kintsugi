@@ -6,9 +6,7 @@ require_once __DIR__ . '/config.php';
 $query = trim((string) ($_GET['q'] ?? ''));
 $query = function_exists('mb_substr') ? mb_substr($query, 0, 80) : substr($query, 0, 80);
 $products = kintsugi_products();
-$collections = kintsugi_collection_pages();
 $productResults = [];
-$collectionResults = [];
 
 if ($query !== '') {
     foreach ($products as $slug => $product) {
@@ -26,23 +24,9 @@ if ($query !== '') {
         }
     }
 
-    foreach ($collections as $slug => $collection) {
-        $searchable = implode(' ', [
-            $slug,
-            $collection['title'],
-            $collection['eyebrow'],
-            $collection['intro'],
-            $collection['feature'],
-            $collection['copy'],
-        ]);
-
-        if (stripos($searchable, $query) !== false) {
-            $collectionResults[$slug] = $collection;
-        }
-    }
 }
 
-$resultCount = count($productResults) + count($collectionResults);
+$resultCount = count($productResults);
 $pageTitle = $query === '' ? 'Search' : 'Search for “' . $query . '”';
 $pageDescription = 'Search Kintsugi products and collections.';
 $pageKey = 'search';
@@ -72,14 +56,14 @@ require __DIR__ . '/includes/header.php';
         <section class="search-discover section-pad">
             <div class="section-heading reveal-block">
                 <p class="eyebrow">A place to begin</p>
-                <h2>Explore by ritual.</h2>
+                <h2>Explore our collections.</h2>
             </div>
             <div class="search-suggestions">
-                <a href="search.php?q=dining">Dining</a>
-                <a href="search.php?q=gifting">Gifting</a>
+                <a href="search.php?q=Aureate Gold">Aureate Gold</a>
+                <a href="search.php?q=Spectrum Luxe">Spectrum Luxe</a>
+                <a href="search.php?q=Royal Opulence">Royal Opulence</a>
                 <a href="search.php?q=porcelain">Porcelain</a>
                 <a href="search.php?q=gold">Gold details</a>
-                <a href="search.php?q=tea">Tea rituals</a>
                 <a href="search.php?q=hosting">Hosting</a>
             </div>
         </section>
@@ -87,25 +71,11 @@ require __DIR__ . '/includes/header.php';
         <section class="search-empty section-pad reveal-block">
             <span aria-hidden="true">✦</span>
             <h2>No pieces found</h2>
-            <p>Try a broader word such as dining, tea, porcelain, gold or gifting.</p>
+            <p>Try a broader word such as porcelain, gold, Aureate, Spectrum or Royal.</p>
             <a class="button" href="collections.php">Explore all collections</a>
         </section>
     <?php else: ?>
         <section class="search-results section-pad">
-            <?php if ($collectionResults): ?>
-                <div class="search-result-group">
-                    <div class="search-group-heading"><p class="eyebrow">Collections</p><span><?= count($collectionResults) ?></span></div>
-                    <div class="search-collection-grid">
-                        <?php foreach ($collectionResults as $slug => $collection): ?>
-                            <a class="search-collection-card reveal-block" href="<?= htmlspecialchars($slug) ?>.php">
-                                <img src="<?= htmlspecialchars($collection['hero']) ?>" alt="<?= htmlspecialchars($collection['title']) ?> collection" loading="lazy">
-                                <span><small><?= htmlspecialchars($collection['eyebrow']) ?></small><strong><?= htmlspecialchars($collection['title']) ?></strong><i>Explore ↗</i></span>
-                            </a>
-                        <?php endforeach; ?>
-                    </div>
-                </div>
-            <?php endif; ?>
-
             <?php if ($productResults): ?>
                 <div class="search-result-group">
                     <div class="search-group-heading"><p class="eyebrow">Pieces</p><span><?= count($productResults) ?></span></div>

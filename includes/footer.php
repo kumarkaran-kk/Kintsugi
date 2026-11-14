@@ -2,7 +2,6 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <img src="assets/images/brand/kintsugi-logo.svg" alt="Kintsugi" width="454" height="186" loading="lazy">
-                <p>We'll write to you only when the<br>feeling is right - stories worth<br>keeping, journeys worth dreaming.</p>
                 <nav class="footer-social" aria-label="Kintsugi social media">
                     <?php foreach (KINTSUGI_SOCIAL_URLS as $platform => $url): ?>
                         <a href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Follow Kintsugi on <?= htmlspecialchars($platform) ?>">
@@ -13,13 +12,13 @@
                 </nav>
             </div>
             <nav class="footer-column footer-categories" aria-label="Product categories">
-                <h3>Collections</h3><a href="dining.php">Dining</a><a href="kitchen.php">Kitchen</a><a href="serveware.php">Serveware</a><a href="gifting.php">Gifting</a><a href="collections.php#signature">Signature Collections</a>
+                <h3>Collections</h3><a href="product.php?product=aureate-gold">Aureate Gold</a><a href="product.php?product=spectrum-luxe">Spectrum Luxe</a><a href="product.php?product=royal-opulence">Royal Opulence</a>
             </nav>
             <nav class="footer-column footer-quick" aria-label="Quick links">
-                <h3>Discover</h3><a href="house.php">The House of Kintsugi</a><a href="craftsmanship.php">Craftsmanship</a><a href="collections.php">All Collections</a><a href="contact.php">Contact Us</a><a href="<?= htmlspecialchars(INDIEKONNECT_STORE_URL) ?>" target="_blank" rel="noopener">Shop on IndieKonnect</a>
+                <h3>Discover</h3><a href="house.php">The House of Kintsugi</a><a href="craftsmanship.php">Craftsmanship</a><a href="collections.php">All Collections</a><a href="product-care.php">Product Care</a><a href="<?= htmlspecialchars(INDIEKONNECT_STORE_URL) ?>" target="_blank" rel="noopener">Shop on IndieKonnect</a>
             </nav>
             <nav class="footer-column footer-help" aria-label="Help links">
-                <h3>Enquiries</h3><a href="contact.php#enquiry">Product Enquiries</a><a href="contact.php#enquiry">Corporate Gifting</a><a href="mailto:hello@kintsugi.in">hello@kintsugi.in</a><a href="house.php">About Us</a>
+                <h3>Help</h3><a href="contact.php">Purchases &amp; Support</a><a href="faq.php">FAQs</a><a href="product-care.php">Care Guide</a><a href="house.php">About Us</a>
             </nav>
             <div class="footer-tableware" aria-hidden="true"></div>
         </div>

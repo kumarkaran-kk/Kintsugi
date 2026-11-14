@@ -7,7 +7,7 @@ $pageTitle = 'Craftsmanship';
 $pageDescription = 'Discover the considered design, material and finishing behind Kintsugi tableware.';
 $pageKey = 'craftsmanship';
 $bodyClass = 'inner-page craftsmanship-page';
-$heroImage = 'assets/images/pages/craftsmanship-hero.webp';
+$heroImage = 'assets/images/products/aureate-gold/real-table-setting.webp';
 $heroEyebrow = 'Made with intention';
 $heroTitle = 'Craftsmanship';
 $heroIntro = 'Thoughtful form, considered finish and attention that can be felt in use.';
@@ -19,7 +19,8 @@ require __DIR__ . '/includes/header.php';
     <section class="craft-intro section-pad reveal-block">
         <p class="eyebrow">Our approach</p>
         <h2>Good design is seen.<br>Great design is lived with.</h2>
-        <p>Kintsugi approaches every piece as part of a larger experience. Proportion, touch, visual rhythm and everyday usefulness are considered together—because refinement should never come at the expense of living.</p>
+        <p>At Kintsugi, we believe beautiful tableware should be experienced, not just admired. Every piece brings together thoughtful design, fine porcelain and exquisite 24K gold detailing, balancing visual appeal with everyday functionality.</p>
+        <p>From the way a piece looks on the table to the way it becomes part of everyday moments, we believe true refinement lies in the details and the experience of living with it.</p>
     </section>
 
     <section class="craft-process section-pad">
@@ -27,24 +28,24 @@ require __DIR__ . '/includes/header.php';
             <div><span>01</span>
                 <p class="eyebrow">Design philosophy</p>
                 <h2>Begin with the ritual.</h2>
-                <p>We look first at the moment a piece belongs to: the way a bowl is passed, how a cup sits in the hand, or how a place setting comes together.</p>
+                <p>Every piece begins with the moments it is designed to be part of. From the comfort of holding a cup to the way a table comes together, we consider how thoughtful design can make everyday experiences more meaningful.</p>
             </div>
             <img src="assets/images/pages/craftsmanship-aureate.webp" alt="Aureate Gold place setting" width="1080" height="1080" loading="lazy">
         </article>
         <article class="craft-step reverse reveal-block">
             <div><span>02</span>
                 <p class="eyebrow">Form and function</p>
-                <h2>Beauty that earns its place.</h2>
-                <p>Silhouettes are considered for balance and use. Decorative details are composed to enrich the object without overwhelming the food, table or room around it.</p>
+                <h2>Beauty that belongs.</h2>
+                <p>We believe beautiful tableware should be as practical as it is refined. Every shape, proportion and detail is thoughtfully considered to create pieces that complement both everyday dining and special occasions.</p>
             </div>
             <img src="assets/images/pages/craftsmanship-spectrum.webp"
                 alt="Kintsugi Spectrum Luxe place setting" width="1080" height="1080" loading="lazy">
         </article>
         <article class="craft-step reveal-block">
             <div><span>03</span>
-                <p class="eyebrow">Finishing</p>
-                <h2>The final detail matters.</h2>
-                <p>Pattern, edge, sheen and surface are reviewed as a complete language. The aim is an object that feels special on first sight and remains rewarding over time.</p>
+                <p class="eyebrow">The Art of Finishing</p>
+                <h2>Every detail matters.</h2>
+                <p>From carefully considered patterns and elegant surfaces to exquisite 24K gold detailing, every element contributes to the character of a piece. Combined with fine porcelain, these details create tableware that feels distinctive, refined and timeless.</p>
             </div>
             <img src="assets/images/pages/craftsmanship-royal.webp" alt="Royal Opulence place setting" width="1080" height="1080" loading="lazy">
         </article>
@@ -53,9 +54,9 @@ require __DIR__ . '/includes/header.php';
     <section class="care-note reveal-block">
         <div>
             <p class="eyebrow">Product care</p>
-            <h2>Made to be treasured.<br>Cared for with ease.</h2>
+            <h2>Made to Be Treasured.<br>Cared for With Care.</h2>
         </div>
-        <p>Use gentle soap, soft cloths and non-abrasive sponges. Pieces with metallic detailing should be hand washed and kept away from microwaves. Product-specific guidance is included on every product page.</p>
+        <div class="care-note-copy"><p>Kintsugi tableware is designed to be enjoyed and appreciated for years to come. With a little care and attention, you can preserve the beauty of fine porcelain and its exquisite 24K gold detailing.</p><a class="text-link" href="product-care.php">Explore our Product Care Guide <span aria-hidden="true">↗</span></a></div>
     </section>
 </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

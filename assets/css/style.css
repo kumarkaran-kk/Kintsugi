@@ -11,6 +11,476 @@
     --scroll-offset: clamp(102px, 6.6vw, 126px);
 }
 
+/* Client proofing revisions â€” November 2026 */
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    letter-spacing: -.025em;
+    text-shadow: 0 3px 22px rgba(35, 5, 10, .55);
+}
+
+.intro-title i {
+    position: relative;
+    display: block;
+    width: clamp(42px, 4vw, 72px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold));
+}
+
+.intro-title i::after {
+    position: absolute;
+    top: 50%;
+    right: -2px;
+    width: 5px;
+    height: 5px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    background: var(--cream);
+    content: '';
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.intro-title i:last-child {
+    background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.intro-title i:last-child::after {
+    right: auto;
+    left: -2px;
+}
+
+.feature-showcase {
+    position: relative;
+    display: grid;
+    min-height: clamp(700px, 51vw, 970px);
+    grid-template-columns: .92fr 1.08fr;
+    overflow: hidden;
+    background: var(--cream);
+}
+
+.feature-showcase-image {
+    grid-column: 2;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.feature-showcase-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 1.2s cubic-bezier(.2, .75, .2, 1);
+}
+
+.feature-showcase:hover .feature-showcase-image img {
+    transform: scale(1.025);
+}
+
+.feature-showcase-copy {
+    display: flex;
+    grid-column: 1;
+    grid-row: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: clamp(70px, 6.5vw, 124px);
+}
+
+.feature-showcase-copy h2 {
+    margin: 18px 0 30px;
+    color: var(--ink);
+    font: 600 clamp(46px, 4.4vw, 84px)/.98 "Cormorant Garamond", serif;
+    letter-spacing: -.025em;
+}
+
+.feature-showcase-copy>p:not(.eyebrow, .price) {
+    max-width: 650px;
+    margin: 0;
+    font-size: clamp(17px, 1.12vw, 22px);
+    line-height: 1.62;
+}
+
+.feature-showcase-copy .price {
+    margin: 28px 0 0;
+    color: var(--wine);
+    font-size: clamp(22px, 1.7vw, 32px);
+}
+
+.feature-showcase-copy .button {
+    margin-top: 36px;
+}
+
+.story-copy p {
+    text-transform: none;
+}
+
+.collection-home-section .ornate-panel {
+    min-height: auto;
+    padding-block: clamp(78px, 7vw, 130px);
+}
+
+.collection-home-section .ornate-panel>.eyebrow {
+    margin-bottom: 16px;
+}
+
+.home-collection-grid {
+    display: grid;
+    width: min(100%, 1320px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: clamp(18px, 2.2vw, 38px);
+}
+
+.home-collection-card {
+    display: block;
+    min-width: 0;
+    padding-bottom: 20px;
+    background: rgba(255, 253, 249, .72);
+    text-align: left;
+}
+
+.home-collection-image {
+    display: block;
+    aspect-ratio: 1;
+    overflow: hidden;
+    background: #fff;
+}
+
+.home-collection-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.2, .75, .2, 1);
+}
+
+.home-collection-card:hover img,
+.home-collection-card:focus-visible img {
+    transform: scale(1.04);
+}
+
+.home-collection-name {
+    display: block;
+    margin: 23px 22px 6px;
+    color: var(--ink);
+    font: 600 clamp(26px, 2vw, 38px)/1.05 "Cormorant Garamond", serif;
+}
+
+.home-collection-card small {
+    display: block;
+    margin-inline: 22px;
+    color: var(--wine);
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+}
+
+.inner-hero-overlay {
+    background: linear-gradient(90deg, rgba(37, 5, 10, .7), rgba(37, 5, 10, .28) 55%, rgba(37, 5, 10, .48));
+}
+
+.inner-hero-copy h1 {
+    font-weight: 600;
+    text-shadow: 0 3px 22px rgba(31, 3, 10, .7);
+}
+
+.inner-hero-copy>p:last-child {
+    font-size: clamp(20px, 1.55vw, 29px);
+    font-weight: 500;
+    text-shadow: 0 2px 12px rgba(31, 3, 10, .7);
+}
+
+.collection-index-grid-products {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.collection-index-grid-products .collection-index-card {
+    min-height: clamp(480px, 37vw, 700px);
+}
+
+.manifesto-columns p,
+.house-story-copy>p:not(.eyebrow),
+.value-grid p {
+    font-size: clamp(18px, 1.24vw, 24px);
+}
+
+.value-grid h3 {
+    margin-top: 42px;
+    font-size: clamp(30px, 2vw, 39px);
+}
+
+.brand-promise::before {
+    display: block;
+    width: 72px;
+    height: 1px;
+    margin: 0 auto 28px;
+    background: var(--gold);
+    box-shadow: -22px 8px 0 -0.3px rgba(217, 163, 61, .7), 22px 8px 0 -0.3px rgba(217, 163, 61, .7);
+    content: '';
+}
+
+.craft-intro>p:not(.eyebrow) {
+    max-width: 900px;
+    margin: 0 auto 22px;
+    font-size: clamp(19px, 1.35vw, 26px);
+    line-height: 1.62;
+}
+
+.craft-process {
+    padding-bottom: clamp(80px, 7vw, 130px);
+}
+
+.craft-step,
+.craft-step.reverse {
+    grid-template-columns: .9fr 1.1fr;
+    gap: clamp(45px, 7vw, 120px);
+    margin-bottom: 0;
+    padding-block: clamp(55px, 6vw, 110px);
+    border-top: 1px solid rgba(91, 0, 27, .14);
+}
+
+.craft-step.reverse {
+    grid-template-columns: 1.1fr .9fr;
+}
+
+.craft-step>img {
+    aspect-ratio: 4 / 3;
+    object-position: center;
+}
+
+.craft-step h2 {
+    font-size: clamp(48px, 4.2vw, 80px);
+}
+
+.craft-step>div>p:last-child {
+    font-size: clamp(18px, 1.24vw, 24px);
+}
+
+.care-note-copy>p {
+    margin: 0;
+    font-size: clamp(18px, 1.25vw, 24px);
+    line-height: 1.65;
+}
+
+.contact-support-layout {
+    grid-template-columns: .85fr 1.15fr;
+    align-items: start;
+}
+
+.contact-copy>p:not(.eyebrow) {
+    margin-bottom: 20px;
+}
+
+.support-options {
+    display: grid;
+    gap: 1px;
+    background: rgba(91, 0, 27, .16);
+    box-shadow: 0 24px 70px rgba(74, 34, 19, .07);
+}
+
+.support-options article,
+.support-options>p {
+    margin: 0;
+    padding: clamp(34px, 4vw, 68px);
+    background: #fff;
+}
+
+.support-options article>span {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: .18em;
+}
+
+.support-options h3 {
+    margin: 15px 0 14px;
+    font: 600 clamp(32px, 2.5vw, 48px)/1.05 "Cormorant Garamond", serif;
+}
+
+.support-options article>p,
+.support-options>p {
+    font-size: clamp(17px, 1.1vw, 21px);
+    line-height: 1.55;
+}
+
+.support-options .button {
+    width: 100%;
+    max-width: 410px;
+    margin-top: 24px;
+}
+
+.contact-quote span {
+    display: block;
+    margin-top: 28px;
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: .28em;
+    text-transform: uppercase;
+}
+
+.care-guide,
+.faq-content {
+    padding-top: clamp(90px, 8vw, 150px);
+    padding-bottom: clamp(100px, 9vw, 170px);
+}
+
+.care-guide-grid {
+    display: grid;
+    max-width: 1420px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-inline: auto;
+    border-top: 1px solid rgba(91, 0, 27, .25);
+    border-left: 1px solid rgba(91, 0, 27, .25);
+}
+
+.care-guide-grid article {
+    min-height: 300px;
+    padding: clamp(32px, 3vw, 54px);
+    border-right: 1px solid rgba(91, 0, 27, .25);
+    border-bottom: 1px solid rgba(91, 0, 27, .25);
+}
+
+.care-guide-grid span,
+.faq-group-heading>span {
+    color: var(--gold);
+    font-size: 14px;
+    letter-spacing: .18em;
+}
+
+.care-guide-grid h3 {
+    margin: 38px 0 16px;
+    font: 600 clamp(29px, 2.2vw, 42px)/1.05 "Cormorant Garamond", serif;
+}
+
+.care-guide-grid p {
+    margin: 0;
+    font-size: 18px;
+    line-height: 1.58;
+}
+
+.care-reminder {
+    padding: clamp(90px, 8vw, 150px) 24px;
+    background: var(--wine);
+    color: #fff;
+    text-align: center;
+}
+
+.care-reminder .eyebrow { color: var(--gold); }
+
+.care-reminder h2 {
+    margin: 20px auto 42px;
+    font: 600 clamp(48px, 5vw, 94px)/.98 "Cormorant Garamond", serif;
+}
+
+.faq-content {
+    max-width: 1450px;
+}
+
+.faq-group {
+    display: grid;
+    grid-template-columns: minmax(220px, .36fr) minmax(0, 1fr);
+    gap: clamp(42px, 6vw, 110px);
+    padding: clamp(65px, 6vw, 110px) 0;
+    border-top: 1px solid rgba(91, 0, 27, .25);
+}
+
+.faq-group:first-child { padding-top: 0; border-top: 0; }
+
+.faq-group-heading h2 {
+    margin: 14px 0 0;
+    font: 600 clamp(34px, 3vw, 56px)/1.03 "Cormorant Garamond", serif;
+}
+
+.faq-list details {
+    border-bottom: 1px solid rgba(91, 0, 27, .22);
+}
+
+.faq-list summary {
+    position: relative;
+    display: grid;
+    min-height: 82px;
+    grid-template-columns: 48px 1fr 24px;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    color: var(--ink);
+    font: 500 clamp(20px, 1.45vw, 27px)/1.25 Afacad, sans-serif;
+    cursor: pointer;
+    list-style: none;
+}
+
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary>span { color: var(--gold); font-size: 13px; letter-spacing: .12em; }
+
+.faq-list summary i,
+.faq-list summary i::after {
+    display: block;
+    width: 15px;
+    height: 1px;
+    background: var(--wine);
+    content: '';
+    transition: transform .25s ease;
+}
+
+.faq-list summary i::after { transform: rotate(90deg); }
+.faq-list details[open] summary i::after { transform: rotate(0); }
+
+.faq-answer {
+    max-width: 850px;
+    padding: 0 40px 28px 64px;
+    color: #574b4e;
+    font-size: clamp(17px, 1.08vw, 20px);
+    line-height: 1.65;
+}
+
+.faq-answer p { margin: 0 0 14px; }
+.faq-answer ul,
+.faq-answer ol { margin: 0 0 16px; padding-left: 22px; }
+
+@media (hover: none), (pointer: coarse) {
+    .product-actions { pointer-events: none; }
+    .product-action-bag { transform: translateX(-101%); }
+    .product-action-buy { transform: translateX(101%); }
+    .product.is-actions-visible .product-actions { pointer-events: auto; }
+    .product.is-actions-visible .product-action { transform: none; }
+}
+
+@media (max-width: 1050px) {
+    .feature-showcase { min-height: 720px; grid-template-columns: 1fr 1fr; }
+    .feature-showcase-copy { padding: 65px 42px; }
+    .collection-index-grid-products { grid-template-columns: 1fr 1fr; }
+    .collection-index-grid-products .collection-index-card:last-child { grid-column: 1 / -1; }
+    .contact-support-layout { grid-template-columns: 1fr; }
+    .care-guide-grid { grid-template-columns: 1fr 1fr; }
+    .faq-group { grid-template-columns: 1fr; gap: 30px; }
+}
+
+@media (max-width: 700px) {
+    .hero h1 { font-size: clamp(42px, 12vw, 58px); }
+    .intro-title { opacity: 1; transform: none; }
+    .intro-title b { min-width: 112px; font-size: 18px; }
+    .feature-showcase { display: flex; min-height: auto; flex-direction: column; }
+    .feature-showcase-copy { order: 1; padding: 78px 24px 52px; }
+    .feature-showcase-image { order: 2; aspect-ratio: 4 / 3; }
+    .feature-showcase-copy h2 { font-size: clamp(42px, 12vw, 57px); }
+    .home-collection-grid { grid-template-columns: 1fr; }
+    .collection-home-section .ornate-panel { padding: 65px 18px 42px; }
+    .home-collection-card { max-width: 430px; margin-inline: auto; }
+    .collection-index-grid-products { grid-template-columns: 1fr; }
+    .collection-index-grid-products .collection-index-card:last-child { grid-column: auto; }
+    .inner-hero-copy h1 { font-size: clamp(48px, 14vw, 72px); }
+    .inner-hero-copy>p:last-child { font-size: 18px; }
+    .value-grid article { min-height: 260px; }
+    .craft-step,
+    .craft-step.reverse { padding-block: 44px; }
+    .craft-step>img { aspect-ratio: 4 / 3; }
+    .care-note { grid-template-columns: 1fr; }
+    .support-options article,
+    .support-options>p { padding: 32px 24px; }
+    .care-guide-grid { grid-template-columns: 1fr; }
+    .care-guide-grid article { min-height: 0; }
+    .faq-group { padding-block: 55px; }
+    .faq-list summary { min-height: 72px; grid-template-columns: 34px 1fr 18px; gap: 10px; font-size: 19px; }
+    .faq-answer { padding: 0 8px 25px 44px; font-size: 16px; }
+}
+
 *,
 *::before,
 *::after {
@@ -250,87 +720,6 @@ p {
     color: #fff;
     text-align: center;
     transform: translateX(-50%);
-}
-
-.hero-diwali {
-    position: absolute;
-    z-index: 1;
-    inset: 0;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.hero-diwali-garland {
-    position: absolute;
-    top: clamp(18px, 2vw, 38px);
-    left: 50%;
-    width: min(calc(100% - 72px), 1360px);
-    height: 37px;
-    border-top: 1px solid rgba(255, 225, 150, .68);
-    border-radius: 50%;
-    filter: drop-shadow(0 2px 7px rgba(255, 182, 45, .65));
-    transform: translateX(-50%);
-}
-
-.hero-diwali-garland::after {
-    position: absolute;
-    inset: -8px 0 auto;
-    height: 24px;
-    background: radial-gradient(circle, #fff9d0 0 2px, #e9a93c 2.5px 4px, transparent 4.5px) 0 0 / 48px 22px repeat-x;
-    content: '';
-    animation: diwali-lights-twinkle 1.9s ease-in-out infinite alternate;
-}
-
-.hero-diwali-diya {
-    position: absolute;
-    bottom: clamp(16px, 2vw, 36px);
-    width: clamp(70px, 6vw, 112px);
-    height: auto;
-    overflow: visible;
-    filter: drop-shadow(0 0 15px rgba(255, 191, 69, .65));
-    animation: hero-diwali-diya-glow 1.8s ease-in-out infinite alternate;
-}
-
-.hero-diwali-diya-left { left: clamp(18px, 3.5vw, 68px); }
-.hero-diwali-diya-right { right: clamp(18px, 3.5vw, 68px); }
-
-.hero-diwali-spark {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    border-radius: 50%;
-    background: #fff5bd;
-    box-shadow: 0 -18px #eeb13f, 0 18px #eeb13f, -18px 0 #eeb13f, 18px 0 #eeb13f,
-        -12px -12px #fff5bd, 12px -12px #fff5bd, -12px 12px #fff5bd, 12px 12px #fff5bd;
-    opacity: .8;
-    animation: hero-diwali-sparkle 2.4s ease-in-out infinite;
-}
-
-.hero-diwali-spark-a { top: 21%; left: 10%; }
-.hero-diwali-spark-b { top: 17%; right: 12%; animation-delay: -.8s; }
-.hero-diwali-spark-c { top: 52%; right: 5%; animation-delay: -1.55s; }
-
-.hero-diwali-label {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin: 0 0 12px;
-    color: #ffdf8e;
-    font: 500 clamp(12px, .95vw, 18px)/1.2 Afacad, sans-serif;
-    letter-spacing: .28em;
-    text-shadow: 0 2px 12px rgba(61, 5, 15, .8);
-    text-transform: uppercase;
-}
-
-.hero-diwali-label span {
-    width: clamp(32px, 3vw, 58px);
-    height: 1px;
-    background: linear-gradient(90deg, transparent, #f3c65e);
-}
-
-.hero-diwali-label span:last-child {
-    background: linear-gradient(90deg, #f3c65e, transparent);
 }
 
 .hero h1 {
@@ -1960,384 +2349,6 @@ p {
 
     .footer-legal {
         flex-wrap: wrap;
-    }
-}
-
-/* Diwali — Festival of Light homepage experience */
-.diwali-svg-defs {
-    position: absolute;
-    width: 0;
-    height: 0;
-    overflow: hidden;
-}
-
-.diwali-opening {
-    position: fixed;
-    z-index: 100;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    padding: 24px;
-    overflow: hidden;
-    background:
-        radial-gradient(circle at 50% 46%, rgba(205, 143, 43, .21), transparent 29%),
-        linear-gradient(145deg, #26000e 0%, #59001d 53%, #2b0010 100%);
-    color: #fff8e8;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity .65s ease, visibility .65s ease;
-}
-
-html.diwali-welcome-seen .diwali-opening,
-.diwali-opening.is-complete {
-    display: none;
-}
-
-.diwali-opening.is-closing {
-    opacity: 0;
-    visibility: hidden;
-}
-
-body.diwali-open {
-    overflow: hidden;
-}
-
-.diwali-opening-fireworks,
-.diwali-page-fireworks {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-}
-
-.diwali-opening-fireworks {
-    z-index: 0;
-}
-
-.diwali-page-fireworks {
-    z-index: 22;
-}
-
-.diwali-opening-rangoli {
-    position: absolute;
-    z-index: 0;
-    width: min(82vw, 760px);
-    aspect-ratio: 1;
-    border: 1px solid rgba(239, 197, 102, .13);
-    border-radius: 50%;
-    background:
-        repeating-conic-gradient(from 22.5deg, rgba(244, 205, 118, .11) 0 4deg, transparent 4deg 22.5deg),
-        repeating-radial-gradient(circle, transparent 0 14%, rgba(244, 205, 118, .07) 14.2% 14.7%, transparent 15% 22%);
-    opacity: .72;
-    animation: diwali-rangoli-turn 36s linear infinite;
-}
-
-.diwali-opening-card {
-    position: relative;
-    z-index: 2;
-    width: min(760px, 92vw);
-    padding: clamp(46px, 6vw, 86px) clamp(25px, 6vw, 80px) clamp(38px, 5vw, 66px);
-    border: 1px solid rgba(243, 205, 118, .66);
-    background: rgba(49, 0, 16, .68);
-    box-shadow: 0 30px 90px rgba(0, 0, 0, .38), inset 0 0 55px rgba(210, 148, 53, .07);
-    text-align: center;
-    backdrop-filter: blur(9px);
-    animation: diwali-card-arrive .85s cubic-bezier(.2, .75, .25, 1) both;
-}
-
-.diwali-opening-card::before,
-.diwali-opening-card::after {
-    position: absolute;
-    width: 72px;
-    height: 72px;
-    border-color: #e6b958;
-    content: '';
-    opacity: .72;
-}
-
-.diwali-opening-card::before {
-    top: 13px;
-    left: 13px;
-    border-top: 1px solid;
-    border-left: 1px solid;
-}
-
-.diwali-opening-card::after {
-    right: 13px;
-    bottom: 13px;
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-}
-
-.diwali-overline {
-    margin: 0;
-    color: #e9c56e;
-    font-size: clamp(10px, .8vw, 13px);
-    letter-spacing: .3em;
-    text-transform: uppercase;
-}
-
-.diwali-opening-card h2 {
-    margin: 12px 0 4px;
-    color: #fff8e9;
-    font: 500 clamp(48px, 6vw, 92px)/.98 "Cormorant Garamond", serif;
-}
-
-.diwali-opening-diyas {
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    gap: clamp(4px, 1.4vw, 18px);
-    margin: 10px 0 8px;
-}
-
-.diwali-opening-diyas svg {
-    width: clamp(62px, 7vw, 95px);
-    overflow: visible;
-    filter: drop-shadow(0 0 15px rgba(246, 190, 74, .44));
-    animation: diwali-flame-breathe 1.7s ease-in-out infinite alternate;
-}
-
-.diwali-opening-diyas svg:nth-child(1),
-.diwali-opening-diyas svg:nth-child(3) {
-    width: clamp(45px, 5vw, 67px);
-    opacity: .82;
-    animation-delay: -.65s;
-}
-
-.diwali-wish {
-    margin: 0;
-    color: #fff8ed;
-    font: 500 clamp(20px, 2vw, 29px)/1.35 "Cormorant Garamond", serif;
-}
-
-.diwali-signoff {
-    margin: 15px 0 0;
-    color: #e8c77c;
-    font-size: clamp(11px, .9vw, 14px);
-    letter-spacing: .13em;
-    text-transform: uppercase;
-}
-
-.diwali-enter {
-    min-width: 190px;
-    min-height: 49px;
-    margin-top: 28px;
-    padding: 10px 26px;
-    border: 1px solid rgba(245, 213, 139, .85);
-    background: transparent;
-    color: #fff8e9;
-    font-size: 12px;
-    letter-spacing: .25em;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: color .25s ease, background-color .25s ease, transform .25s ease;
-}
-
-.diwali-enter:hover,
-.diwali-enter:focus-visible {
-    background: #f1cc78;
-    color: #530019;
-    transform: translateY(-2px);
-}
-
-.diwali-celebration-section {
-    position: relative;
-}
-
-.diwali-section-accent {
-    position: absolute;
-    z-index: 5;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 66px;
-    overflow: visible;
-    pointer-events: none;
-}
-
-.diwali-section-accent::before {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: min(calc(100% - 56px), 1320px);
-    height: 20px;
-    background:
-        radial-gradient(circle, #fff5bd 0 2px, #e5a42d 2.5px 4px, transparent 4.5px) 3px 2px / 42px 18px repeat-x;
-    filter: drop-shadow(0 3px 6px rgba(218, 142, 29, .56));
-    content: '';
-    opacity: .88;
-    transform: translateX(-50%);
-    animation: diwali-lights-twinkle 2.2s ease-in-out infinite alternate;
-}
-
-.diwali-section-accent::after {
-    position: absolute;
-    top: 2px;
-    left: 50%;
-    width: min(calc(100% - 64px), 1312px);
-    height: 15px;
-    border-top: 1px solid rgba(119, 15, 44, .44);
-    border-radius: 50%;
-    content: '';
-    transform: translateX(-50%);
-}
-
-.diwali-section-accent svg {
-    position: absolute;
-    top: 2px;
-    left: 50%;
-    width: 60px;
-    height: 58px;
-    overflow: visible;
-    filter: drop-shadow(0 0 10px rgba(239, 178, 56, .48));
-    transform: translateX(-50%);
-    animation: diwali-centered-flame-breathe 1.8s ease-in-out infinite alternate;
-}
-
-.feature-luxe .diwali-section-accent::after,
-.feature-luxe .diwali-section-accent::before {
-    opacity: .62;
-}
-
-.feature-luxe .diwali-section-accent svg {
-    width: 64px;
-}
-
-.diwali-celebration-section.diwali-sparked .diwali-section-accent {
-    animation: diwali-accent-pop .75s cubic-bezier(.2, .8, .2, 1) both;
-}
-
-@keyframes diwali-card-arrive {
-    from { opacity: 0; transform: translateY(24px) scale(.97); }
-    to { opacity: 1; transform: none; }
-}
-
-@keyframes diwali-rangoli-turn {
-    to { transform: rotate(360deg); }
-}
-
-@keyframes diwali-flame-breathe {
-    from { transform: translateY(1px) scale(.98); filter: drop-shadow(0 0 8px rgba(239, 178, 56, .42)); }
-    to { transform: translateY(-2px) scale(1.025); filter: drop-shadow(0 0 18px rgba(255, 202, 85, .7)); }
-}
-
-@keyframes diwali-centered-flame-breathe {
-    from { transform: translateX(-50%) translateY(1px) scale(.98); filter: drop-shadow(0 0 8px rgba(239, 178, 56, .42)); }
-    to { transform: translateX(-50%) translateY(-2px) scale(1.025); filter: drop-shadow(0 0 18px rgba(255, 202, 85, .7)); }
-}
-
-@keyframes hero-diwali-diya-glow {
-    from { transform: translateY(1px) scale(.98); filter: drop-shadow(0 0 10px rgba(255, 191, 69, .45)); }
-    to { transform: translateY(-3px) scale(1.02); filter: drop-shadow(0 0 24px rgba(255, 207, 96, .82)); }
-}
-
-@keyframes hero-diwali-sparkle {
-    0%, 100% { opacity: .18; transform: scale(.35) rotate(0); }
-    48% { opacity: .92; transform: scale(1) rotate(45deg); }
-    62% { opacity: .5; transform: scale(.72) rotate(65deg); }
-}
-
-@keyframes diwali-lights-twinkle {
-    from { opacity: .54; filter: drop-shadow(0 2px 4px rgba(218, 142, 29, .34)); }
-    to { opacity: .98; filter: drop-shadow(0 3px 9px rgba(255, 191, 62, .76)); }
-}
-
-@keyframes diwali-accent-pop {
-    0% { opacity: .35; transform: translateY(-8px) scale(.96); }
-    65% { opacity: 1; transform: translateY(1px) scale(1.02); }
-    100% { opacity: 1; transform: none; }
-}
-
-@media (max-width: 700px) {
-    .diwali-opening {
-        padding: 14px;
-    }
-
-    .diwali-opening-card {
-        width: min(94vw, 520px);
-        padding: 45px 19px 36px;
-    }
-
-    .diwali-opening-card::before,
-    .diwali-opening-card::after {
-        width: 46px;
-        height: 46px;
-    }
-
-    .diwali-opening-card h2 {
-        font-size: clamp(43px, 13vw, 62px);
-    }
-
-    .diwali-wish br {
-        display: none;
-    }
-
-    .diwali-section-accent {
-        height: 53px;
-    }
-
-    .diwali-section-accent::before {
-        width: calc(100% - 30px);
-        background-size: 32px 16px;
-    }
-
-    .diwali-section-accent::after {
-        width: calc(100% - 36px);
-    }
-
-    .diwali-section-accent svg {
-        width: 48px;
-        height: 49px;
-    }
-
-    .hero-diwali-garland {
-        top: 13px;
-        width: calc(100% - 32px);
-    }
-
-    .hero-diwali-garland::after {
-        background-size: 34px 19px;
-    }
-
-    .hero-diwali-diya {
-        bottom: 12px;
-        width: 62px;
-        opacity: .92;
-    }
-
-    .hero-diwali-diya-left { left: 10px; }
-    .hero-diwali-diya-right { right: 10px; }
-
-    .hero-diwali-spark-a { top: 16%; left: 10%; }
-    .hero-diwali-spark-b { top: 22%; right: 10%; }
-    .hero-diwali-spark-c { display: none; }
-
-    .hero-diwali-label {
-        gap: 9px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        letter-spacing: .2em;
-    }
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .diwali-opening-rangoli,
-    .diwali-opening-card,
-    .diwali-opening-diyas svg,
-    .diwali-section-accent,
-    .diwali-section-accent::before,
-    .diwali-section-accent svg,
-    .hero-diwali-garland::after,
-    .hero-diwali-diya,
-    .hero-diwali-spark {
-        animation: none !important;
-    }
-
-    .diwali-opening-fireworks,
-    .diwali-page-fireworks {
-        display: none;
     }
 }
 
@@ -4278,14 +4289,14 @@ body.diwali-open {
     font: 400 31px/1 Georgia, serif;
 }
 
-.pdp-line-icon::before { content: '◇'; }
-.pdp-line-icon--spark::before { content: '✦'; }
-.pdp-line-icon--flower::before { content: '❈'; }
-.pdp-line-icon--hand::before { content: '♧'; }
-.pdp-line-icon--origin::before { content: '⌖'; }
-.pdp-line-icon--plates::before { content: '◎'; }
-.pdp-line-icon--delivery::before { content: '▱'; }
-.pdp-line-icon--help::before { content: '◌'; }
+.pdp-line-icon::before { content: 'â—‡'; }
+.pdp-line-icon--spark::before { content: 'âœ¦'; }
+.pdp-line-icon--flower::before { content: 'âˆ'; }
+.pdp-line-icon--hand::before { content: 'â™§'; }
+.pdp-line-icon--origin::before { content: 'âŒ–'; }
+.pdp-line-icon--plates::before { content: 'â—Ž'; }
+.pdp-line-icon--delivery::before { content: 'â–±'; }
+.pdp-line-icon--help::before { content: 'â—Œ'; }
 
 .pdp-spec b {
     display: block;
@@ -5121,4 +5132,54 @@ body.diwali-open {
         margin-top: 8px;
         font-size: 12px;
     }
+}
+
+/* Proofing overrides kept last so legacy page rules cannot dilute the approved revision. */
+.hero h1 {
+    font-family: "Cormorant Garamond", serif;
+    font-weight: 600;
+    letter-spacing: -.025em;
+    text-shadow: 0 3px 22px rgba(35, 5, 10, .55);
+}
+
+.story-copy p { text-transform: none; }
+.inner-hero-overlay { background: linear-gradient(90deg, rgba(37, 5, 10, .7), rgba(37, 5, 10, .28) 55%, rgba(37, 5, 10, .48)); }
+.inner-hero-copy h1 { font-weight: 600; text-shadow: 0 3px 22px rgba(31, 3, 10, .7); }
+.inner-hero-copy>p:last-child { font-size: clamp(20px, 1.55vw, 29px); font-weight: 500; text-shadow: 0 2px 12px rgba(31, 3, 10, .7); }
+.collection-index-grid-products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.manifesto-columns p,
+.house-story-copy>p:not(.eyebrow),
+.value-grid p { font-size: clamp(18px, 1.24vw, 24px); }
+.craft-intro>p:not(.eyebrow) { max-width: 900px; margin: 0 auto 22px; font-size: clamp(19px, 1.35vw, 26px); line-height: 1.62; }
+.craft-process { padding-bottom: clamp(80px, 7vw, 130px); }
+.craft-step,
+.craft-step.reverse { gap: clamp(45px, 7vw, 120px); margin-bottom: 0; padding-block: clamp(55px, 6vw, 110px); border-top: 1px solid rgba(91, 0, 27, .14); }
+.craft-step>img { aspect-ratio: 4 / 3; object-position: center; }
+.craft-step h2 { font-size: clamp(48px, 4.2vw, 80px); }
+.craft-step>div>p:last-child { font-size: clamp(18px, 1.24vw, 24px); }
+.contact-support-layout { grid-template-columns: .85fr 1.15fr; align-items: start; }
+
+@media (hover: none), (pointer: coarse) {
+    .product-actions { pointer-events: none; }
+    .product-action-bag { transform: translateX(-101%); }
+    .product-action-buy { transform: translateX(101%); }
+    .product.is-actions-visible .product-actions { pointer-events: auto; }
+    .product.is-actions-visible .product-action { transform: none; }
+}
+
+@media (max-width: 1050px) {
+    .collection-index-grid-products { grid-template-columns: 1fr 1fr; }
+    .collection-index-grid-products .collection-index-card:last-child { grid-column: 1 / -1; }
+    .contact-support-layout { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 700px) {
+    .hero h1 { font-size: clamp(42px, 12vw, 58px); }
+    .story-copy p { text-transform: none; }
+    .collection-index-grid-products { grid-template-columns: 1fr; }
+    .collection-index-grid-products .collection-index-card:last-child { grid-column: auto; }
+    .inner-hero-copy h1 { font-size: clamp(48px, 14vw, 72px); }
+    .inner-hero-copy>p:last-child { font-size: 18px; }
+    .craft-step,
+    .craft-step.reverse { padding-block: 44px; }
 }
