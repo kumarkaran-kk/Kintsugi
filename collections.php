@@ -7,7 +7,7 @@ $pageTitle = 'Collections';
 $pageDescription = 'Discover Kintsugi’s three signature fine porcelain tableware collections.';
 $pageKey = 'collections';
 $bodyClass = 'inner-page collections-page';
-$heroImage = 'assets/images/pages/collections-hero.webp';
+$heroImage = 'assets/images/home/real-hero-spectrum-clean.jpg';
 $heroEyebrow = 'A world of considered living';
 $heroTitle = 'Collections';
 $heroIntro = 'Discover pieces made for moments worth gathering around.';
@@ -37,20 +37,5 @@ require __DIR__ . '/includes/header.php';
         </div>
     </section>
 
-    <section class="signature-edit section-pad" id="signature">
-        <div class="section-heading reveal-block">
-            <p class="eyebrow">The Complete Edit</p>
-            <h2>Choose your Kintsugi collection.</h2>
-        </div>
-        <div class="signature-grid">
-            <?php foreach (array_slice($products, 0, 3, true) as $slug => $product): ?>
-                <article class="signature-card reveal-block">
-                    <a href="product.php?product=<?= rawurlencode($slug) ?>"><img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy"></a>
-                    <p><?= htmlspecialchars($product['price']) ?></p>
-                    <h3><a href="product.php?product=<?= rawurlencode($slug) ?>"><?= htmlspecialchars($product['name']) ?></a></h3>
-                </article>
-            <?php endforeach; ?>
-        </div>
-    </section>
 </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

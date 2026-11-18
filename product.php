@@ -25,6 +25,7 @@ $presentation = [
         'manifesto' => 'A celebration of light, legacy and the Indian table.',
         'short_story' => 'Inspired by the warmth of a royal sunset, the Aureate Gold collection brings a touch of majestic elegance to intimate gatherings.',
         'pieces' => [['6', 'Dinner Plates'], ['6', 'Bread & Butter Plates'], ['6', 'Small Bowls'], ['1', 'Salad Bowl'], ['1', 'Platter']],
+        'craft_copy' => 'Every piece in the Aureate Gold collection reflects a considered approach to design, material and finish. Crafted from fine porcelain and complemented by elegant 24-carat gold detailing, each piece brings together refined aesthetics, attention to detail and lasting appeal.',
         'detail_captions' => ['Intricate floral motifs', '24-carat gold detailing', 'A harmony of form and finish'],
     ],
     'royal-opulence' => [
@@ -32,7 +33,8 @@ $presentation = [
         'theme' => 'emerald',
         'manifesto' => 'A grand expression of ceremony, artistry and modern Indian luxury.',
         'short_story' => 'Deep turquoise, classical paisley and luminous gold come together in a collection created for life’s most memorable celebrations.',
-        'pieces' => [['6', 'Dinner Plates'], ['6', 'Salad Plates'], ['6', 'Soup Bowls'], ['2', 'Casseroles'], ['1', 'Platter']],
+        'pieces' => [['6', 'Soup Bowls'], ['6', 'Soup Spoons'], ['6', 'Dinner Plates'], ['6', 'Salad Plates'], ['6', 'Bread & Butter Plates'], ['6', 'Dessert Bowls'], ['6', 'Small Bowls'], ['2', 'Casseroles'], ['2', 'Casserole Lids'], ['1', 'Platter'], ['2', 'Large Salad Bowls'], ['1', 'Large Bowl'], ['2', 'Pickle Jars'], ['2', 'Pickle Jar Lids']],
+        'craft_copy' => 'Each piece in the Royal Opulence collection brings together fine porcelain, thoughtful design and elegant detailing, creating tableware that reflects refined craftsmanship and contemporary living.',
         'detail_captions' => ['Ornate paisley borders', '24-carat gold detailing', 'A richly layered finish'],
     ],
     'spectrum-luxe' => [
@@ -40,7 +42,8 @@ $presentation = [
         'theme' => 'spectrum',
         'manifesto' => 'A vivid celebration of colour, movement and contemporary confidence.',
         'short_story' => 'A stained-glass-inspired mosaic of modern hues transforms every gathering into an expressive and unforgettable table.',
-        'pieces' => [['6', 'Dinner Plates'], ['6', 'Bread & Butter Plates'], ['6', 'Dessert Bowls'], ['6', 'Tea Cups'], ['1', 'Platter']],
+        'pieces' => [['6', 'Dinner Plates'], ['6', 'Bread & Butter Plates'], ['6', 'Dessert Bowls'], ['6', 'Small Bowls'], ['1', 'Casserole'], ['1', 'Casserole Lid'], ['1', 'Platter'], ['2', 'Large Salad Bowls'], ['1', 'Large Bowl'], ['6', 'Tea Cups'], ['6', 'Saucers'], ['1', 'Tea Pot'], ['1', 'Tea Pot Lid'], ['1', 'Milk / Creamer'], ['1', 'Sugar Bowl'], ['1', 'Sugar Bowl Lid']],
+        'craft_copy' => 'Every piece in the Spectrum Luxe collection reflects a considered approach to design, material and finish. Crafted from fine porcelain and complemented by elegant 24-carat gold detailing, each piece brings together refined aesthetics, intricate design elements and lasting appeal.',
         'detail_captions' => ['Stained-glass geometry', '24-carat gold detailing', 'Colour in perfect balance'],
     ],
 ][$product['slug']];
@@ -125,7 +128,7 @@ require __DIR__ . '/includes/header.php';
 
     <section class="pdp-section pdp-pieces"><div class="pdp-wrap">
         <div class="pdp-section-head reveal-block"><h2>The Collection, Piece by Piece</h2><span></span><p>A harmonious set of <?= htmlspecialchars((string) $product['pieces']) ?> pieces</p></div>
-        <div class="pdp-piece-grid">
+        <div class="pdp-piece-grid<?= count($presentation['pieces']) > 7 ? ' pdp-piece-grid--complete' : '' ?>">
             <?php foreach ($presentation['pieces'] as $index => $piece): ?>
                 <article class="pdp-piece reveal-block"><div><img src="<?= htmlspecialchars($product['piece_images'][$index]) ?>" alt="<?= htmlspecialchars($piece[1]) ?>" loading="lazy" style="--piece-position:center"></div><b><?= htmlspecialchars($piece[0]) ?></b><h3><?= htmlspecialchars($piece[1]) ?></h3></article>
             <?php endforeach; ?>
@@ -134,8 +137,8 @@ require __DIR__ . '/includes/header.php';
 
     <section class="pdp-craft">
         <div class="pdp-craft-image"><img src="<?= htmlspecialchars($product['craft_image']) ?>" alt="<?= htmlspecialchars($product['short_name']) ?> craftsmanship detail" loading="lazy"></div>
-        <div class="pdp-craft-copy reveal-block"><p class="pdp-overline">Our Craftsmanship</p><h2>Made by Hand.<br>Meant to Endure.</h2><i></i><p>Each piece in the <?= htmlspecialchars($product['short_name']) ?> collection is crafted by master artisans, combining time-honoured techniques with a vision for contemporary living.</p></div>
-        <ol class="pdp-craft-steps"><li><b>01</b><span>Fine porcelain<br>for lasting beauty</span></li><li><b>02</b><span>Hand-finished motifs<br>by skilled artisans</span></li><li><b>03</b><span>24-carat gold detailing<br>for a luminous finish</span></li></ol>
+        <div class="pdp-craft-copy reveal-block"><p class="pdp-overline">Our Craftsmanship</p><h2>Thoughtfully Designed.<br>Beautifully Finished.</h2><i></i><p><?= htmlspecialchars($presentation['craft_copy']) ?></p></div>
+        <ol class="pdp-craft-steps"><li><b>01</b><span>Fine Porcelain<br>For refined quality and lasting beauty.</span></li><li><b>02</b><span>Considered Design<br>Distinctive motifs and details that bring character to every piece.</span></li><li><b>03</b><span>24-Carat Gold Detailing<br>For a refined, luminous finish.</span></li></ol>
     </section>
 
     <section class="pdp-section pdp-details-gold"><div class="pdp-wrap">
@@ -161,7 +164,7 @@ require __DIR__ . '/includes/header.php';
             <article><?= pdp_line_icon('hand') ?><div><h3>Care Instructions</h3><p>Hand wash only with a mild detergent. Not microwave safe.</p></div></article>
             <article><?= pdp_line_icon('delivery') ?><div><h3>Delivery Timeline</h3><p>Estimated delivery: <?= htmlspecialchars($product['delivery']) ?>.</p></div></article>
             <article><?= pdp_line_icon('cube') ?><div><h3>Secure Fulfilment</h3><p>Orders are securely managed through IndieKonnect.</p></div></article>
-            <article><?= pdp_line_icon('help') ?><div><h3>Need Help?</h3><p>For product enquiries or a private viewing, contact us.</p></div></article>
+            <article><?= pdp_line_icon('help') ?><div><h3>Need Help?</h3><p>For any product-related enquiries or assistance, please reach out to the IndieKonnect Customer Support team.</p></div></article>
         </div>
         <div class="pdp-section-head pdp-related-heading reveal-block"><h2>Complete the Table</h2><span></span><p>Continue the story</p></div>
         <div class="pdp-related-grid">

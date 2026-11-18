@@ -42,7 +42,7 @@ require __DIR__ . '/includes/header.php';
 
         <section class="feature-showcase" id="collections">
             <div class="feature-showcase-image">
-                <img src="assets/images/products/spectrum-luxe/real-table-setting.webp" alt="Spectrum Luxe tableware styled for a contemporary gathering" width="1080" height="1080" loading="lazy">
+                <img src="assets/images/home/real-hero-spectrum-clean.jpg" alt="Spectrum Luxe tableware styled for a contemporary gathering" width="1842" height="854" loading="lazy">
             </div>
             <div class="feature-showcase-copy">
                 <p class="eyebrow">Spectrum Luxe</p>
@@ -103,25 +103,6 @@ require __DIR__ . '/includes/header.php';
                     <h3 data-look-name><?= htmlspecialchars($lookProduct['name']) ?></h3>
                     <a class="button" data-look-link href="product.php?product=royal-opulence">View this product</a>
                 </div>
-            </div>
-        </section>
-
-        <section class="new section-pad" id="new">
-            <h2>What’s New</h2>
-            <div class="product-row">
-                <?php foreach ($products as $slug => $product): ?>
-                    <article class="product">
-                        <div class="product-image" data-product-actions-toggle tabindex="0" role="button" aria-expanded="false" aria-label="Show actions for <?= htmlspecialchars($product['name']) ?>">
-                            <img src="<?= htmlspecialchars($product['image']) ?>" alt="<?= htmlspecialchars($product['name']) ?>" loading="lazy">
-                            <span class="product-actions">
-                                <a class="product-action product-action-bag" href="product.php?product=<?= rawurlencode($slug) ?>" aria-label="View <?= htmlspecialchars($product['name']) ?> details">View details</a>
-                                <a class="product-action product-action-buy" href="<?= htmlspecialchars($product['retail_url']) ?>" target="_blank" rel="noopener" aria-label="Buy <?= htmlspecialchars($product['name']) ?> now">Buy now</a>
-                            </span>
-                        </div>
-                        <p><?= htmlspecialchars($product['price']) ?></p>
-                        <h3><a href="product.php?product=<?= rawurlencode($slug) ?>"><?= htmlspecialchars($product['name']) ?></a></h3>
-                    </article>
-                <?php endforeach; ?>
             </div>
         </section>
 

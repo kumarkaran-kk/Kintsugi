@@ -5182,3 +5182,150 @@ p {
     .craft-step,
     .craft-step.reverse { padding-block: 44px; }
 }
+
+/* Revised content and PDP presentation — November 18, 2026 */
+.button,
+.text-link,
+.home-collection-card small,
+.collection-index-card i,
+.pdp-primary-cta,
+.pdp-secondary-cta,
+.pdp-small-button,
+.pdp-related-link,
+.product-action {
+    font-family: Inter, Afacad, Arial, sans-serif;
+    font-weight: 500;
+    letter-spacing: .18em;
+}
+
+.editorial-pdp .breadcrumbs {
+    font-size: 12px;
+    line-height: 1.45;
+}
+
+.pdp-kicker,
+.pdp-overline {
+    font-size: clamp(12px, .82vw, 15px);
+    line-height: 1.45;
+}
+
+.pdp-tagline {
+    font-size: clamp(22px, 1.55vw, 29px);
+}
+
+.pdp-rating,
+.editorial-pdp .pdp-tax-note,
+.pdp-promises {
+    font-size: clamp(13px, .9vw, 15px);
+}
+
+.pdp-primary-cta,
+.pdp-secondary-cta {
+    min-height: 58px;
+    font-size: 12px;
+}
+
+.pdp-manifesto-image::before {
+    display: none;
+}
+
+.pdp-manifesto-copy>p:last-child {
+    max-width: 580px;
+    font-size: clamp(17px, 1.15vw, 22px);
+    line-height: 1.5;
+}
+
+.pdp-tradition {
+    right: clamp(18px, 3vw, 56px);
+    bottom: clamp(18px, 4vw, 60px);
+    padding: 12px 14px;
+    border-left: 2px solid var(--pdp-gold);
+    background: rgba(91, 0, 27, .76);
+    font-size: 11px;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, .45);
+}
+
+.pdp-piece>div {
+    height: clamp(180px, 15vw, 270px);
+}
+
+.pdp-piece-grid--complete {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pdp-piece-grid--complete .pdp-piece {
+    min-width: 145px;
+    max-width: 190px;
+    flex: 1 1 155px;
+}
+
+.pdp-craft-copy>p:last-child {
+    font-size: clamp(16px, 1.05vw, 20px);
+    line-height: 1.55;
+}
+
+.pdp-craft-steps span {
+    font-size: clamp(16px, 1.08vw, 20px);
+    line-height: 1.3;
+}
+
+.pdp-macro-card>div {
+    height: clamp(260px, 24vw, 430px);
+}
+
+.pdp-macro-card figcaption,
+.pdp-spec p {
+    font-size: clamp(17px, 1.2vw, 21px);
+}
+
+.pdp-spec b,
+.pdp-section-head>p {
+    font-size: 11px;
+}
+
+.pdp-lifestyle p {
+    max-width: 560px;
+    font-size: clamp(16px, 1.05vw, 20px);
+    line-height: 1.5;
+}
+
+.pdp-service-grid h3 {
+    font-size: 12px;
+}
+
+.pdp-service-grid p {
+    font-size: clamp(14px, .92vw, 17px);
+    line-height: 1.5;
+}
+
+@media (max-width: 800px) {
+    .pdp-tradition {
+        top: 22px;
+        right: 20px;
+        bottom: auto;
+    }
+
+    .pdp-piece-grid--complete .pdp-piece {
+        min-width: calc(33.333% - 18px);
+        max-width: calc(33.333% - 18px);
+        flex-basis: calc(33.333% - 18px);
+    }
+}
+
+@media (max-width: 540px) {
+    .editorial-pdp .breadcrumbs { font-size: 11px; }
+    .pdp-kicker,
+    .pdp-overline { font-size: 11px; }
+    .pdp-piece-grid--complete .pdp-piece,
+    .pdp-piece-grid--complete .pdp-piece:last-child {
+        width: auto;
+        min-width: calc(50% - 8px);
+        max-width: calc(50% - 8px);
+        flex-basis: calc(50% - 8px);
+    }
+    .pdp-piece>div { height: 170px; }
+    .pdp-craft-copy h2 { font-size: 41px; }
+    .pdp-service-grid p { font-size: 15px; }
+}

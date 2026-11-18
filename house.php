@@ -7,7 +7,7 @@ $pageTitle = 'The House of Kintsugi';
 $pageDescription = 'The story, philosophy and values behind Kintsugi.';
 $pageKey = 'house';
 $bodyClass = 'inner-page house-page';
-$heroImage = 'assets/images/pages/house-royal.webp';
+$heroImage = 'assets/images/home/real-hero-spectrum-clean.jpg';
 $heroEyebrow = 'Our story';
 $heroTitle = 'The House of Kintsugi';
 $heroIntro = 'A house built around the belief that beauty lives in the everyday.';
@@ -26,7 +26,7 @@ require __DIR__ . '/includes/header.php';
     </section>
 
     <section class="house-story reveal-block">
-        <div class="house-story-image"><img src="assets/images/products/spectrum-luxe/real-place-setting.webp" alt="A Spectrum Luxe table prepared for gathering" width="1080" height="1080" loading="lazy"></div>
+        <div class="house-story-image"><img src="assets/images/home/real-hero-spectrum-clean.jpg" alt="A Spectrum Luxe table prepared for gathering" width="1842" height="854" loading="lazy"></div>
         <div class="house-story-copy">
             <p class="eyebrow">Our philosophy</p>
             <h2>Luxury, made warmer.</h2>
