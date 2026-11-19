@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 $pageTitle = $pageTitle ?? 'Luxury Tableware';
-$pageDescription = $pageDescription ?? 'Kintsugi luxury tableware — crafted collections for exceptional homes.';
+$pageDescription = $pageDescription ?? 'Kintsugi luxury tableware, crafted collections for exceptional homes.';
 $pageKey = $pageKey ?? '';
 $bodyClass = $bodyClass ?? ($pageKey === 'home' ? 'home-page' : 'inner-page');
 

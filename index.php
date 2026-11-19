@@ -16,7 +16,8 @@ require __DIR__ . '/includes/header.php';
             <img class="hero-bg" src="assets/images/home/real-hero-spectrum-clean.jpg" alt="Spectrum Luxe tableware arranged for a gathering" width="1842" height="854" fetchpriority="high">
             <div class="hero-shade"></div>
             <div class="hero-copy">
-                <h1 id="hero-title">Spectrum Luxe</h1>
+                <p class="hero-tagline">Beauty lives in the everyday</p>
+                <h1 id="hero-title"><span>Spectrum</span> <span>Luxe</span></h1>
                 <a class="button button-light" href="product.php?product=spectrum-luxe">Explore</a>
             </div>
         </section>

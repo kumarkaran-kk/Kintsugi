@@ -20,7 +20,7 @@ require __DIR__ . '/includes/header.php';
         <p class="eyebrow">The Kintsugi Philosophy</p>
         <h2>A beautiful object finds its meaning in the moments it becomes part of.</h2>
         <div class="manifesto-columns">
-            <p>Kintsugi is envisioned as more than a tableware brand. It is a contemporary Indian expression of thoughtful design, fine craftsmanship and the beauty of everyday living.<br><br>Inspired by the moments that bring people together — morning coffee, leisurely Sunday lunches, evening tea and celebrations shared with loved ones — Kintsugi creates tableware that becomes part of life's most meaningful rituals.</p>
+            <p>Kintsugi is envisioned as more than a tableware brand. It is a contemporary Indian expression of thoughtful design, fine craftsmanship and the beauty of everyday living.<br><br>Inspired by the moments that bring people together, from morning coffee and leisurely Sunday lunches to evening tea and celebrations shared with loved ones, Kintsugi creates tableware that becomes part of life's most meaningful rituals.</p>
             <p>A plate becomes special when it holds a cherished family recipe. A cup becomes personal through the quiet moments it accompanies. While an object may first catch your eye through its beauty, it is the memories created around it that give it lasting value.</p>
         </div>
     </section>
@@ -40,10 +40,10 @@ require __DIR__ . '/includes/header.php';
     <section class="values section-pad">
         <div class="section-heading reveal-block"><p class="eyebrow">What We Value</p><h2>The Principles Behind Every Piece.</h2></div>
         <div class="value-grid">
-            <article class="reveal-block"><span>01 — Design</span><h3>Beauty with purpose.</h3><p>Thoughtfully designed pieces that bring beauty, character and harmony to every table.</p></article>
-            <article class="reveal-block"><span>02 — Craft</span><h3>Detail, considered.</h3><p>A commitment to fine porcelain, exquisite 24K gold detailing and attention to every detail.</p></article>
-            <article class="reveal-block"><span>03 — Function</span><h3>Made to be lived with.</h3><p>Beautiful tableware designed to be enjoyed, used and appreciated in everyday life.</p></article>
-            <article class="reveal-block"><span>04 — Togetherness</span><h3>For moments shared.</h3><p>Celebrating the moments, conversations and memories that bring people together around the table.</p></article>
+            <article class="reveal-block"><span>01 · Design</span><h3>Beauty with purpose.</h3><p>Thoughtfully designed pieces that bring beauty, character and harmony to every table.</p></article>
+            <article class="reveal-block"><span>02 · Craft</span><h3>Detail, considered.</h3><p>A commitment to fine porcelain, exquisite 24K gold detailing and attention to every detail.</p></article>
+            <article class="reveal-block"><span>03 · Function</span><h3>Made to be lived with.</h3><p>Beautiful tableware designed to be enjoyed, used and appreciated in everyday life.</p></article>
+            <article class="reveal-block"><span>04 · Togetherness</span><h3>For moments shared.</h3><p>Celebrating the moments, conversations and memories that bring people together around the table.</p></article>
         </div>
     </section>
 

@@ -53,10 +53,10 @@ require __DIR__ . '/includes/header.php';
 
     <section class="care-note reveal-block">
         <div>
-            <p class="eyebrow">Product care</p>
-            <h2>Made to Be Treasured.<br>Cared for With Care.</h2>
+            <p class="eyebrow">Made to Be Treasured</p>
+            <h2>Care That Preserves Its Beauty.</h2>
         </div>
-        <div class="care-note-copy"><p>Kintsugi tableware is designed to be enjoyed and appreciated for years to come. With a little care and attention, you can preserve the beauty of fine porcelain and its exquisite 24K gold detailing.</p><a class="text-link" href="product-care.php">Explore our Product Care Guide <span aria-hidden="true">↗</span></a></div>
+        <div class="care-note-copy"><p>Kintsugi tableware is thoughtfully crafted to be enjoyed and cherished for years to come. With mindful care and gentle handling, you can preserve the elegance of fine porcelain and the delicate beauty of its 24K gold detailing.</p><a class="text-link" href="product-care.php">Explore Product Care <span aria-hidden="true">↗</span></a></div>
     </section>
 </main>
 <?php require __DIR__ . '/includes/footer.php'; ?>

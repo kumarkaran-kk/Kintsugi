@@ -178,7 +178,7 @@ function kintsugi_collection_pages(): array
             'intro' => 'Statement pieces that carry food, colour and conversation beautifully.',
             'hero' => 'assets/images/pages/serveware-hero.webp',
             'feature' => 'Designed to be passed around.',
-            'copy' => 'Bowls, platters and finishing accents become part of the gathering—moving from hand to hand and returning for every celebration.',
+            'copy' => 'Bowls, platters and finishing accents become part of the gathering, moving from hand to hand and returning for every celebration.',
             'products' => [],
         ],
         'gifting' => [

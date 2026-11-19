@@ -93,7 +93,7 @@ require __DIR__ . '/includes/header.php';
         <div class="pdp-gallery reveal-block" data-gallery-count="<?= count($gallery) ?>" style="--gallery-count:<?= count($gallery) ?>">
             <div class="pdp-thumbnails" aria-label="Product images">
                 <?php foreach ($gallery as $imageIndex => $galleryImage): ?>
-                    <button type="button" class="pdp-thumbnail<?= $imageIndex === 0 ? ' active' : '' ?>" data-product-thumb="<?= htmlspecialchars($galleryImage['src']) ?>" data-product-position="<?= htmlspecialchars($galleryImage['position']) ?>" data-product-alt="<?= htmlspecialchars($product['name']) ?> — view <?= $imageIndex + 1 ?>" aria-label="Show product image <?= $imageIndex + 1 ?>" aria-pressed="<?= $imageIndex === 0 ? 'true' : 'false' ?>">
+                    <button type="button" class="pdp-thumbnail<?= $imageIndex === 0 ? ' active' : '' ?>" data-product-thumb="<?= htmlspecialchars($galleryImage['src']) ?>" data-product-position="<?= htmlspecialchars($galleryImage['position']) ?>" data-product-alt="<?= htmlspecialchars($product['name']) ?>, view <?= $imageIndex + 1 ?>" aria-label="Show product image <?= $imageIndex + 1 ?>" aria-pressed="<?= $imageIndex === 0 ? 'true' : 'false' ?>">
                         <img src="<?= htmlspecialchars($galleryImage['src']) ?>" alt="" loading="<?= $imageIndex === 0 ? 'eager' : 'lazy' ?>" style="object-position:<?= htmlspecialchars($galleryImage['position']) ?>">
                     </button>
                 <?php endforeach; ?>
@@ -110,7 +110,7 @@ require __DIR__ . '/includes/header.php';
             <p class="pdp-tagline"><?= htmlspecialchars($presentation['tagline']) ?></p>
             <p class="pdp-rating" aria-label="Rated 4.8 out of 5"><span aria-hidden="true">★★★★★</span> <b>4.8 (28 reviews)</b></p>
             <p class="pdp-price"><?= htmlspecialchars($product['price']) ?></p>
-            <p class="pdp-tax-note">Inclusive of all applicable taxes. Shipping charges are calculated separately at checkout.</p>
+            <p class="pdp-tax-note">Inclusive of all applicable taxes.<br class="pdp-tax-break"> Shipping charges are calculated separately at checkout.</p>
             <a class="pdp-primary-cta" href="<?= htmlspecialchars($product['retail_url']) ?>" target="_blank" rel="noopener">Purchase on IndieKonnect <span aria-hidden="true">↗</span></a>
             <a class="pdp-secondary-cta" href="contact.php#enquiry">Book a Private Viewing</a>
             <div class="pdp-promises">
@@ -128,12 +128,18 @@ require __DIR__ . '/includes/header.php';
 
     <section class="pdp-section pdp-pieces"><div class="pdp-wrap">
         <div class="pdp-section-head reveal-block"><h2>The Collection, Piece by Piece</h2><span></span><p>A harmonious set of <?= htmlspecialchars((string) $product['pieces']) ?> pieces</p></div>
-        <div class="pdp-piece-grid<?= count($presentation['pieces']) > 7 ? ' pdp-piece-grid--complete' : '' ?>">
+        <div class="pdp-piece-grid<?= count($presentation['pieces']) > 7 ? ' pdp-piece-grid--complete' : '' ?><?= $product['slug'] === 'spectrum-luxe' ? ' pdp-piece-grid--spectrum' : '' ?><?= $product['slug'] === 'royal-opulence' ? ' pdp-piece-grid--royal' : '' ?>">
             <?php foreach ($presentation['pieces'] as $index => $piece): ?>
-                <article class="pdp-piece reveal-block"><div><img src="<?= htmlspecialchars($product['piece_images'][$index]) ?>" alt="<?= htmlspecialchars($piece[1]) ?>" loading="lazy" style="--piece-position:center"></div><b><?= htmlspecialchars($piece[0]) ?></b><h3><?= htmlspecialchars($piece[1]) ?></h3></article>
+                <article class="pdp-piece reveal-block"><div><button class="pdp-piece-zoom" type="button" data-piece-zoom="<?= htmlspecialchars($product['piece_images'][$index]) ?>" data-piece-label="<?= htmlspecialchars($piece[1]) ?>" aria-label="Enlarge <?= htmlspecialchars($piece[1]) ?> image"><img src="<?= htmlspecialchars($product['piece_images'][$index]) ?>" alt="<?= htmlspecialchars($piece[1]) ?>" loading="lazy" style="--piece-position:center"><span aria-hidden="true">+</span></button></div><b><?= htmlspecialchars($piece[0]) ?></b><h3><?= htmlspecialchars($piece[1]) ?></h3></article>
             <?php endforeach; ?>
         </div>
     </div></section>
+
+    <dialog class="pdp-piece-lightbox" data-piece-lightbox aria-label="Product piece image preview">
+        <button class="pdp-piece-lightbox-close" type="button" data-piece-lightbox-close aria-label="Close image preview">×</button>
+        <img src="" alt="" data-piece-lightbox-image>
+        <p data-piece-lightbox-caption></p>
+    </dialog>
 
     <section class="pdp-craft">
         <div class="pdp-craft-image"><img src="<?= htmlspecialchars($product['craft_image']) ?>" alt="<?= htmlspecialchars($product['short_name']) ?> craftsmanship detail" loading="lazy"></div>

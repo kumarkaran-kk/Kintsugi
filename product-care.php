@@ -10,7 +10,7 @@ $bodyClass = 'inner-page care-page';
 $heroImage = 'assets/images/pages/craftsmanship-aureate.webp';
 $heroEyebrow = 'Product Care';
 $heroTitle = 'Caring for Your Kintsugi Tableware';
-$heroIntro = 'Preserve the beauty. Protect the craftsmanship.';
+$heroIntro = 'Beauty lives in the everyday.';
 
 $careSteps = [
     ['01', 'Handle With Care', 'Handle each piece gently. Avoid sudden impacts, dropping or knocking pieces against hard surfaces, as porcelain can chip or break.'],
@@ -29,8 +29,8 @@ require __DIR__ . '/includes/header.php';
     <section class="care-guide section-pad">
         <div class="section-heading reveal-block">
             <p class="eyebrow">Made to Be Treasured</p>
-            <h2>Cared for With Care.</h2>
-            <p>Kintsugi tableware is designed to be enjoyed and appreciated for years to come. With a little care and attention, you can preserve the beauty of fine porcelain and its exquisite 24K gold detailing.</p>
+            <h2>Care That Preserves Its Beauty.</h2>
+            <p>Kintsugi tableware is thoughtfully crafted to be enjoyed and cherished for years to come. With mindful care and gentle handling, you can preserve the elegance of fine porcelain and the delicate beauty of its 24K gold detailing.</p>
         </div>
         <div class="care-guide-grid">
             <?php foreach ($careSteps as [$number, $title, $copy]): ?>
@@ -41,7 +41,7 @@ require __DIR__ . '/includes/header.php';
 
     <section class="care-reminder reveal-block">
         <p class="eyebrow">The Essentials</p>
-        <h2>Hand wash. Handle gently.<br>Enjoy beautifully.</h2>
+        <h2>Preserve the beauty.<br>Protect the craftsmanship.</h2>
         <a class="button button-light" href="collections.php">Explore the collections</a>
     </section>
 </main>

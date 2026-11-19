@@ -2,6 +2,7 @@
         <div class="footer-main">
             <div class="footer-brand">
                 <img src="assets/images/brand/kintsugi-logo.svg" alt="Kintsugi" width="454" height="186" loading="lazy">
+                <p class="footer-tagline">Beauty lives in the everyday.</p>
                 <nav class="footer-social" aria-label="Kintsugi social media">
                     <?php foreach (KINTSUGI_SOCIAL_URLS as $platform => $url): ?>
                         <a href="<?= htmlspecialchars($url) ?>" target="_blank" rel="noopener noreferrer" aria-label="Follow Kintsugi on <?= htmlspecialchars($platform) ?>">
@@ -18,7 +19,7 @@
                 <h3>Discover</h3><a href="house.php">The House of Kintsugi</a><a href="craftsmanship.php">Craftsmanship</a><a href="collections.php">All Collections</a><a href="product-care.php">Product Care</a><a href="<?= htmlspecialchars(INDIEKONNECT_STORE_URL) ?>" target="_blank" rel="noopener">Shop on IndieKonnect</a>
             </nav>
             <nav class="footer-column footer-help" aria-label="Help links">
-                <h3>Help</h3><a href="contact.php">Purchases &amp; Support</a><a href="faq.php">FAQs</a><a href="product-care.php">Care Guide</a><a href="house.php">About Us</a>
+                <h3>Help</h3><a href="contact.php">Purchases &amp; Support</a><a href="faq.php">FAQs</a><a href="house.php">About Us</a>
             </nav>
             <div class="footer-tableware" aria-hidden="true"></div>
         </div>

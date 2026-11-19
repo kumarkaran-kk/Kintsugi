@@ -321,3 +321,36 @@ document.querySelectorAll('.pdp-gallery').forEach(gallery => {
     selectImage(thumbnails[(activeIndex + 1) % thumbnails.length]);
   });
 });
+
+const pieceLightbox = document.querySelector('[data-piece-lightbox]');
+
+if (pieceLightbox) {
+  const lightboxImage = pieceLightbox.querySelector('[data-piece-lightbox-image]');
+  const lightboxCaption = pieceLightbox.querySelector('[data-piece-lightbox-caption]');
+  const lightboxClose = pieceLightbox.querySelector('[data-piece-lightbox-close]');
+  let lightboxTrigger = null;
+
+  const closePieceLightbox = () => {
+    if (pieceLightbox.open) pieceLightbox.close();
+  };
+
+  document.querySelectorAll('[data-piece-zoom]').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      lightboxTrigger = trigger;
+      lightboxImage.src = trigger.dataset.pieceZoom;
+      lightboxImage.alt = trigger.dataset.pieceLabel || 'Product piece';
+      lightboxCaption.textContent = trigger.dataset.pieceLabel || '';
+      pieceLightbox.showModal();
+      lightboxClose?.focus();
+    });
+  });
+
+  lightboxClose?.addEventListener('click', closePieceLightbox);
+  pieceLightbox.addEventListener('click', event => {
+    if (event.target === pieceLightbox) closePieceLightbox();
+  });
+  pieceLightbox.addEventListener('close', () => {
+    lightboxImage.removeAttribute('src');
+    lightboxTrigger?.focus();
+  });
+}
