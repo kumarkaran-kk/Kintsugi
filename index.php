@@ -12,13 +12,42 @@ $pageKey = 'home';
 require __DIR__ . '/includes/header.php';
 ?>
     <main>
-        <section class="hero" aria-labelledby="hero-title">
-            <img class="hero-bg" src="assets/images/home/real-hero-spectrum-clean.jpg" alt="Spectrum Luxe tableware arranged for a gathering" width="1842" height="854" fetchpriority="high">
-            <div class="hero-shade"></div>
-            <div class="hero-copy">
-                <p class="hero-tagline">Beauty lives in the everyday</p>
-                <h1 id="hero-title"><span>Spectrum</span> <span>Luxe</span></h1>
-                <a class="button button-light" href="product.php?product=spectrum-luxe">Explore</a>
+        <section class="hero hero-carousel" data-home-hero aria-labelledby="hero-title" aria-roledescription="carousel">
+            <div class="hero-slides" aria-live="off">
+                <article class="hero-slide is-active" data-hero-slide aria-hidden="false">
+                    <img class="hero-bg" src="assets/images/home/real-hero-spectrum-clean.jpg" alt="Spectrum Luxe tableware arranged for a contemporary gathering" width="1842" height="854" fetchpriority="high">
+                    <div class="hero-shade"></div>
+                    <div class="hero-copy">
+                        <p class="hero-tagline">Beauty lives in the everyday</p>
+                        <h1 id="hero-title"><span>Spectrum</span> <span>Luxe</span></h1>
+                        <a class="button button-light" href="product.php?product=spectrum-luxe">Explore</a>
+                    </div>
+                </article>
+                <article class="hero-slide" data-hero-slide aria-hidden="true">
+                    <img class="hero-bg" src="assets/images/home/campaign-banners/aureate-gold.jpg" alt="Aureate Gold tableware styled on a banana-leaf setting" width="1842" height="854" loading="eager">
+                    <div class="hero-shade"></div>
+                    <div class="hero-copy">
+                        <p class="hero-tagline">The art of radiant hospitality</p>
+                        <h2><span>Aureate</span> <span>Gold</span></h2>
+                        <a class="button button-light" href="product.php?product=aureate-gold">Explore</a>
+                    </div>
+                </article>
+                <article class="hero-slide" data-hero-slide aria-hidden="true">
+                    <img class="hero-bg" src="assets/images/home/campaign-banners/royal-opulence.jpg" alt="Royal Opulence tableware arranged for an elegant celebration" width="1842" height="854" loading="eager">
+                    <div class="hero-shade"></div>
+                    <div class="hero-copy">
+                        <p class="hero-tagline">The ultimate expression of dining luxury</p>
+                        <h2><span>Royal</span> <span>Opulence</span></h2>
+                        <a class="button button-light" href="product.php?product=royal-opulence">Explore</a>
+                    </div>
+                </article>
+            </div>
+            <button class="hero-arrow hero-arrow--prev" type="button" data-hero-prev aria-label="Show previous banner"><span aria-hidden="true">&#8592;</span></button>
+            <button class="hero-arrow hero-arrow--next" type="button" data-hero-next aria-label="Show next banner"><span aria-hidden="true">&#8594;</span></button>
+            <div class="hero-pagination" aria-label="Choose a banner">
+                <button class="is-active" type="button" data-hero-dot="0" aria-label="Show Spectrum Luxe banner" aria-current="true"></button>
+                <button type="button" data-hero-dot="1" aria-label="Show Aureate Gold banner" aria-current="false"></button>
+                <button type="button" data-hero-dot="2" aria-label="Show Royal Opulence banner" aria-current="false"></button>
             </div>
         </section>
 

@@ -69,6 +69,78 @@ document.addEventListener('click', event => {
   target.focus({ preventScroll: true });
 });
 
+document.querySelectorAll('[data-home-hero]').forEach(carousel => {
+  const slides = [...carousel.querySelectorAll('[data-hero-slide]')];
+  const dots = [...carousel.querySelectorAll('[data-hero-dot]')];
+  const previous = carousel.querySelector('[data-hero-prev]');
+  const next = carousel.querySelector('[data-hero-next]');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let activeIndex = Math.max(0, slides.findIndex(slide => slide.classList.contains('is-active')));
+  let autoTimer = null;
+  let pointerStartX = null;
+
+  const showSlide = requestedIndex => {
+    if (slides.length < 2) return;
+    activeIndex = (requestedIndex + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      const active = index === activeIndex;
+      slide.classList.toggle('is-active', active);
+      slide.setAttribute('aria-hidden', String(!active));
+    });
+    dots.forEach((dot, index) => {
+      const active = index === activeIndex;
+      dot.classList.toggle('is-active', active);
+      dot.setAttribute('aria-current', String(active));
+    });
+  };
+
+  const stopAuto = () => {
+    if (autoTimer) window.clearInterval(autoTimer);
+    autoTimer = null;
+  };
+
+  const startAuto = () => {
+    stopAuto();
+    if (!reducedMotion && slides.length > 1 && !document.hidden) {
+      autoTimer = window.setInterval(() => showSlide(activeIndex + 1), 5600);
+    }
+  };
+
+  const moveManually = direction => {
+    showSlide(activeIndex + direction);
+    startAuto();
+  };
+
+  previous?.addEventListener('click', () => moveManually(-1));
+  next?.addEventListener('click', () => moveManually(1));
+  dots.forEach(dot => dot.addEventListener('click', () => {
+    showSlide(Number(dot.dataset.heroDot));
+    startAuto();
+  }));
+
+  carousel.addEventListener('pointerdown', event => {
+    if (event.pointerType === 'mouse') return;
+    pointerStartX = event.clientX;
+  });
+  carousel.addEventListener('pointerup', event => {
+    if (pointerStartX === null) return;
+    const distance = event.clientX - pointerStartX;
+    pointerStartX = null;
+    if (Math.abs(distance) > 45) moveManually(distance < 0 ? 1 : -1);
+  });
+  carousel.addEventListener('pointercancel', () => { pointerStartX = null; });
+  carousel.addEventListener('focusin', stopAuto);
+  carousel.addEventListener('focusout', event => {
+    if (!carousel.contains(event.relatedTarget)) startAuto();
+  });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stopAuto(); else startAuto();
+  });
+
+  showSlide(activeIndex);
+  startAuto();
+});
+
 document.querySelectorAll('[data-plate-carousel]').forEach(carousel => {
   const slides = JSON.parse(carousel.dataset.slides || '[]');
   const large = carousel.querySelector('.plate-viewport-large');
